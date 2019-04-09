@@ -1,20 +1,22 @@
 #!/bin/sh
 #
 # https://www.romanzolotarev.com/bin/status
-# Copyright 2017-2018 Roman Zolotarev <hi@romanzolotarev.com>
+# Copyright 2017-2019 Roman Zolotarev <hi@romanzolotarev.com>
 #
-
-screencast_log=/tmp/screencast.log
 
 ifttt() { echo "$1"|grep -q "$2" && echo "$3" || echo "$4"; }
 
 cmus="$(cmus-remote -Q 2>/dev/null)"
-position="$(echo "$cmus"|grep 'position'|cut -c 10-)"
-second="$(printf "%s" "$position"|tail -c 1)"
-if [ "$second" -gt 5 ]; then tag=artist; else tag=title; fi
-label="$(echo "$cmus"|grep "tag $tag"|cut -c 11-30)"
-
-if [ -n "$cmus" ]; then printf '%+20s %-3s%s%s' \
+if test -n "$(echo "$cmus"|grep 'status playing')"
+then
+	position="$(echo "$cmus"|grep 'position'|cut -c 10-)"
+	second="$(printf "%s" "$position"|tail -c 1)"
+	if test "$second" -gt 5
+	then tag='artist'
+	else tag='title'
+	fi
+	label="$(echo "$cmus"|grep "tag $tag"|cut -c 11-30)"
+	printf '%+20s %-3s%s%s' \
 	"$label" \
 	"$position" \
 	"$(ifttt "$cmus" 'set shuffle true' 'S' '.')" \
@@ -23,12 +25,14 @@ fi
 
 bat_life="$(apm -m)"
 printf '%s %s%s %sC ' \
-	"$(ifttt "$(xset -q|grep LED)" '00000001' 'Я' 'A' )" \
+	"$(ifttt "$(xset -q|grep LED)" '00000011' 'Я' 'A' )" \
 	"$(ifttt "$(apm -a)" '1' "$(apm -l)%" '' )" \
 	"$(ifttt "$bat_life" 'unknown' '' "${bat_life}m" )" \
 	"$(sysctl -n hw.sensors.cpu0|cut -d'.' -f1)"
 
-if [ -f "$screencast_log" ]; then
+screencast_log=/tmp/screencast.log
+if test -f "$screencast_log"
+then
 	fps="$(tr '' '\n'<"$screencast_log"|
 		grep 'fps= '|
 		tail -n1|
