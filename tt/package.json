@@ -1,0 +1,66 @@
+{
+  "name": "typing",
+  "version": "1.0.0",
+  "description": "A keyboard typing test",
+  "main": "app.js",
+  "scripts": {
+    "start": "parcel tt.html",
+    "build": "rm -rf ./dist && parcel build tt.html && cp ./dist/* ../",
+    "lint": "eslint src test",
+    "test": "ava test --watch --fail-fast",
+    "test:ci": "ava tests --fail-fast --no-color"
+  },
+  "keywords": ["typing", "keyboard", "react"],
+  "author": "Roman Zolotarev <hi@romanzolotarev.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@ava/babel-preset-stage-4": "^2.0.0",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.4.0",
+    "ava": "^1.4.1",
+    "babel": "^6.23.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-app": "^4.0.1",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "parcel-bundler": "^1.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "ava": {
+    "require": ["@babel/register"],
+    "babel": {
+      "testOptions": {
+        "presets": ["@babel/preset-react"]
+      }
+    }
+  },
+  "babel": { "presets": ["@babel/env", "@babel/preset-react"] },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true
+    },
+    "extends": "plugin:react-app/recommended",
+    "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+      " ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "plugins": ["react", "react-hooks"],
+    "rules": {
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "no-console": ["error", { "allow": ["warn", "error", "info"] }],
+      "no-unused-vars": ["error"]
+    }
+  }
+}
