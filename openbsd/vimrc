@@ -107,6 +107,8 @@ set hidden
 nnoremap <Leader>b :buffer <C-z>
 
 Plug 'christoomey/vim-tmux-navigator'
+  nnoremap gP :r!tmux show-buffer<CR>
+  nnoremap gp :r!xclip -o -selection clipboard<CR>
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-eunuch'
   nnoremap <Leader>w :W<CR>
