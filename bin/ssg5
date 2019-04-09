@@ -150,12 +150,11 @@ list_files() {
 
 
 list_dependant_files () {
- 	exts="\\( -name '*.html' -o -name '*.md' -o -name '*.css' -o -name '*.js' \\)"
-	cd "$1" && eval "find . -type f ! -name '.' ! -path '*/_*' $IGNORE $exts"
+ 	e="\\( -name '*.html' -o -name '*.md' -o -name '*.css' -o -name '*.js' \\)"
+	cd "$1" && eval "find . -type f ! -name '.' ! -path '*/_*' $IGNORE $e"
 }
 
 list_newer_files() {
-	# shellcheck disable=SC2086
 	cd "$1" && eval "find . -type f ! -name '.' $IGNORE -newer $2"
 }
 
@@ -236,8 +235,8 @@ render_html_file() {
 
 
 list_pages() {
-	cd "$1" && find . -type f ! -path '*/.*' ! -path '*/_*' \
-	\( -name '*.html' -o -name '*.md' \) |
+	e="\\( -name '*.html' -o -name '*.md' \\)"
+	cd "$1" && eval "find . -type f ! -path '*/.*' ! -path '*/_*' $IGNORE $e" |
 	sed 's#^./##;s#.md$#.html#;s#/index.html$#/#'
 }
 
