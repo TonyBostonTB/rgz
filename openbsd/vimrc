@@ -239,8 +239,8 @@ highlight qfSeparator  ctermfg=0       ctermbg=NONE cterm=NONE
 highlight Comment        ctermfg=248 ctermbg=NONE cterm=NONE
 highlight String         ctermfg=10  ctermbg=NONE cterm=NONE
 highlight htmlH1         ctermfg=15  ctermbg=NONE cterm=bold
-highlight htmlItalic     ctermfg=7   ctermbg=NONE cterm=NONE
-highlight htmlItalicBold ctermfg=15  ctermbg=NONE cterm=bold
+highlight htmlItalic     ctermfg=7   ctermbg=NONE cterm=italic
+highlight htmlItalicBold ctermfg=15  ctermbg=NONE cterm=italic
 highlight htmlBoldItalic ctermfg=15  ctermbg=NONE cterm=bold
 
 " function! HighlightItem()

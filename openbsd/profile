@@ -4,11 +4,11 @@ stty status '^T'
 
 LC_ALL='en_US.UTF-8'
 PATH="$HOME/.node/bin:$HOME/bin:$PATH"
-PS1='\W$ '
+PS1='\e[3m\W$ \e[0m'
+TERM='xterm-256color'
+
 VISUAL='vi'
-TERM=xterm-256color
-GOPATH="$HOME"
-export LC_ALL PATH PS1 VISUAL TERM GOPATH
+export LC_ALL PATH PS1 VISUAL TERM
 
 # shellcheck disable=SC2086
 update_complete_pass() {
@@ -28,7 +28,7 @@ pass_export()	{ pass export	"$1"; }
 t()	{ tmux new -As 0; }
 
 c()	{ stmux 'conf'	'prv/conf'; }
-j()	{ stmux 'j'	'prv/j'		'vim my.journal'; }
+j()	{ stmux 'j'	'prv/j'		'vi my.journal'; }
 m()	{ stmux 'mus'	'pub/music'	'cmus'; }
 nb()	{ stmux 'nb'	'downloads'	'newsboat'; }
 v()	{ stmux 'v'	'prv/openvpn'	'doas openvpn --config default.ovpn'; }
@@ -81,8 +81,6 @@ m_u1()	{ doas "$HOME/bin/mnt_crypto"	'a38cf81c8435b3cd.i' 'e55a17a697d8240d.a'; 
 u_u1()	{ doas "$HOME/bin/umnt_crypto"	'a38cf81c8435b3cd.i'; }
 a_u1()	{ doas "$HOME/bin/arc_with_timestamp" "$1" '/mnt/a38cf81c8435b3cd.i'; }
 
-# alias cabal='env TMPDIR=/usr/local/cabal/build/ cabal'
-
 alias cp='cp -i'
 alias l='ls -aF'
 alias ll='ls -lahF'
@@ -99,5 +97,7 @@ alias gl='git log --oneline -30'
 alias gp='git push'
 alias gr='git rebase -i HEAD~20'
 alias gs='git status -sb'
+
+alias p='clear'
 
 alias a="vi \$HOME/.profile && . \$HOME/.profile"
