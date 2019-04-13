@@ -49,6 +49,8 @@ fit()	{ convert -resize 1200 "$1" "$1"; jpeg "$1"; }
 f50()	{ convert -resize 50 "$1" "$1"; jpeg "$1"; }
 f120()	{ convert -resize 120 "$1" "$1"; jpeg "$1"; }
 
+mcd() { test -n "$1" && mkdir -p "$1" && cd "$1"; }
+
 pics()	{ mnt sd1i && cd DCIM && rsync -avP --chown="$(whoami)" . "$HOME/downloads/pics" && cd "$HOME/downloads/pics" && umnt sd1i; }
 xrm()	{ sxiv -tor "${1:-.}" | while read -r f; do test -f "$f" && /bin/rm -v "$f"; done; }
 xmv()	{ test -n "$1" || return; mkdir -p "$1"; sxiv -tor . | while read -r f; do mv -v "$f" "$1/"; done; }
