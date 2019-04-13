@@ -4,7 +4,7 @@ stty status '^T'
 
 LC_ALL='en_US.UTF-8'
 PATH="$HOME/.node/bin:$HOME/bin:$PATH"
-PS1='\w '
+PS1='\W$ '
 VISUAL='vi'
 TERM=xterm-256color
 GOPATH="$HOME"
@@ -57,8 +57,6 @@ x()	{ sxiv -tor "${1:-.}"; }
 aria()	{ mkdir -p "$HOME/downloads" && (cd "$HOME/downloads" && aria2c "$1"); }
 yt()	{ mkdir -p "$HOME/downloads" && (cd "$HOME/downloads" && youtube-dl "$1"); }
 yl()	{ mkdir -p "$HOME/downloads" && (cd "$HOME/downloads" && youtube-dl -f 'bestvideo[height<=144]+bestaudio/best[height<=144]' "$1"); }
-
-p() 	{ PS1='\W$ '; clear; }
 
 m_sd()	{ doas "$HOME/bin/mnt_crypto"	'36a604aa7599cf63.a' 'fdfc727794396746.a'; }
 u_sd()	{ doas "$HOME/bin/umnt_crypto"	'36a604aa7599cf63.a'; }

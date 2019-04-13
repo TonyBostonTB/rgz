@@ -45,7 +45,7 @@ function! RemoveFancyCharacters()
 endfunction
 command! RemoveFancyCharacters call RemoveFancyCharacters()
 
-set textwidth=72 nowrap linebreak formatoptions=cronqBj nojoinspaces autoindent shiftround shiftwidth=8 softtabstop=8 tabstop=8
+set textwidth=72 nowrap linebreak formatoptions=cronqBj nojoinspaces autoindent shiftround expandtab shiftwidth=2 softtabstop=2 tabstop=2
 set smartcase ignorecase incsearch
 Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-expand-region'
@@ -127,7 +127,7 @@ Plug 'leafgarland/typescript-vim', { 'for': ['tsx', 'ts'] }
 
 Plug 'sbdchd/neoformat', {'for': ['sql', 'sass', 'scss', 'css', 'javascript', 'json', 'html']}
   augroup Neoformat
-    autocmd! BufWrite *.sql,*.sass,*.css,*.js,*.json silent! undojoin | Neoformat
+    autocmd! BufWrite *.sql,*.js,*.json silent! undojoin | Neoformat
   augroup END
 
 " Linters
