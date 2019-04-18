@@ -15,7 +15,11 @@ url="http://$name"
 [ -d "$dst" ] || not_found "$dst"
 
 IGNORE=$(
-	test -f "$src/.ssgignore" || echo ''
+  if ! test -f "$src/.ssgignore"
+  then
+    echo ''
+    exit
+  fi
 	while read -r x
 	do
 		test -n "$x" || continue

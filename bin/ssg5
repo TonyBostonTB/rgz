@@ -28,7 +28,11 @@ main() {
 	dst=$(readlink_f "$2")
 
 	IGNORE=$(
-		test -f "$src/.ssgignore" || echo ''
+		if ! test -f "$src/.ssgignore"
+    then
+      echo ''
+      return
+    fi
 		while read -r x
 		do
 			test -n "$x" || continue
