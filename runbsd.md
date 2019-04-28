@@ -2,7 +2,7 @@ _This is a part of [my setup](/setup.html)_
 
 # Run BSD
 
-I host [stories of people who run BSD](https://www.bsdjobs.com/people/)
+I host [stories of people who run BSD](https://runbsd.info/people/)
 to help beginners (mostly developers and system administrators) to
 discover BSD operating systems and related projects.
 
