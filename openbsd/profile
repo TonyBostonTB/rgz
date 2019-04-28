@@ -36,12 +36,13 @@ v()	{ stmux 'v'	'prv/openvpn'	'doas openvpn --config default.ovpn'; }
 alias bsdj='sssg src/bsdj'
 alias oams='sssg src/oams'
 alias rgz='sssg src/rgz'
+alias wvr='sssg src/wvr'
 alias rgzm='sssg prv/m'
 alias runbsd='sssg src/runbsd'
 
 s_log()	{ test -n "$1" && { rsync -azcvP "$1:/var/www/logs/*" "$HOME/prv/logs/$1/$(date +%Y-%m-%d)/"; }; }
 
-png()	{ optipng -preserve -strip all -o7 "$1"; }
+png()	{ optipng -preserve -strip all -o7 $*; }
 jpeg()	{ jpegoptim --strip-all --preserve --preserve-perms --verbose -m80 $@; }
 j50()	{ jpegoptim --strip-all --preserve --preserve-perms --verbose -m50 $@; }
 j20() 	{ jpegoptim --strip-all --preserve --preserve-perms --verbose -m20 $@; }
@@ -49,7 +50,8 @@ fit()	{ convert -resize 1200 "$1" "$1"; jpeg "$1"; }
 f50()	{ convert -resize 50 "$1" "$1"; jpeg "$1"; }
 f120()	{ convert -resize 120 "$1" "$1"; jpeg "$1"; }
 
-mcd() { test -n "$1" && mkdir -p "$1" && cd "$1"; }
+set -A complete_b -- $(ls "$HOME/box")
+b() { set -A complete_b -- $(ls "$HOME/box") && mkdir -p "$HOME/box/$1" && cd "$HOME/box/$1"; }
 
 pics()	{ mnt sd1i && cd DCIM && rsync -avP --chown="$(whoami)" . "$HOME/downloads/pics" && cd "$HOME/downloads/pics" && umnt sd1i; }
 xrm()	{ sxiv -tor "${1:-.}" | while read -r f; do test -f "$f" && /bin/rm -v "$f"; done; }
@@ -91,7 +93,8 @@ alias rm='rm -i'
 
 g() { test -n "$1" && a=$(ag "$1" | fzf | cut -d: -f1) && test -n "$a" && vi "$a"; }
 
-alias ga='git add --all -p'
+alias ga='git add --all'
+alias gap='git add --all -p'
 alias gc='git commit'
 alias gd='git diff'
 alias gf='git commit --amend --no-edit'
