@@ -14,7 +14,8 @@ pre i::before { content: "> "; color: #aaa; }
 pre strong { background-color: #0000cc; color: #fff; }
 pre { font-size: 15px; overflow-x: auto; color: #888; }
 p code { vertical-align: middle; padding: .125em .25em .05em .25em; font-size: .9em; border-radius: .25em; background-color: #fffceb; }
-
+.footnotes p { margin-top: 0; }
+.footnotes { font-size: .75rem; }
 
 a { background-color: transparent; }
 a, blockquote, body, code, div, form, h1, h2, h3, html, input, li, ol, p, pre, table, td, textarea, th, tr, ul { box-sizing: border-box; }
