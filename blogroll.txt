@@ -604,6 +604,7 @@ https://prettier.io/blog/atom.xml
 https://psychonautgirl.space/feed.xml
 https://pvdz.ee/weblog.rss
 https://rachelandrew.co.uk/archives/rss.php
+https://rakhim.org/index.xml
 https://rauchg.com/atom
 https://resilientwebdesign.com/podcast.rss
 https://reykfloeter.com/atom.xml
