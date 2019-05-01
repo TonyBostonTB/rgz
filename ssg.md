@@ -10,8 +10,8 @@ Optionally it converts Markdown files to HTML with
 Unless a page has `<HTML>` tag _ssg5_ extracts its title from `<H1>`
 tag, wraps the page with `_header.html`, `_footer.html`.
 
-Then copies everything (excluding `.*`, `CVS`, and `_*`) from `src`
-to `dst` directory.
+Then copies everything (excluding `.*` or paths listed in
+`src/.ssgignore`) from `src` to `dst` directory.
 
 [![ssg4](ssg4.png)](ssg4.png)
 _180 LoC. [Enlarge, enhance, zoom!](ssg4.png)_
@@ -84,9 +84,9 @@ bytes) as a placeholder.
 
 ## Sitemap
 
-_ssg5_ generates `sitemap.xml` with the list of all page. Don't
-forget to add absolute URL of the sitemap to your `robot.txt`.<br>For
-example:
+_ssg5_ generates `sitemap.xml` with the list of all pages. Don't forget
+to add the absolute URL of the sitemap to your `robot.txt`.<br>
+For example:
 
 	user-agent: *
 	sitemap: https://rgz.ee/sitemap.xml

@@ -15,11 +15,11 @@ url="http://$name"
 [ -d "$dst" ] || not_found "$dst"
 
 IGNORE=$(
-  if ! test -f "$src/.ssgignore"
-  then
-    echo ''
-    exit
-  fi
+	if ! test -f "$src/.ssgignore"
+	then
+		printf ' ! -path "*/%s*"' '.git'
+		exit
+	fi
 	while read -r x
 	do
 		test -n "$x" || continue
