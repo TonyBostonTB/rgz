@@ -2,6 +2,18 @@ _Thank you for your kind words and [support](sponsors.html)!_
 
 # People are saying...
 
+"got to your webpage and finally managed to encrypt disk. Oh, I’m so happy right now! Thank you, Sir!"<br>&mdash;
+[Marcelo Barboza](https://twitter.com/SalveBarboza/status/1122565411592130561 "28 Apr 2019")
+(@SalveBarboza)
+
+"Thanks to @romanzolotarev I have enabled HTTPS on my new OpenBSD 6.5 server without much fuss."<br>&mdash;
+[uranther](https://hackers.town/@uranther "28 Apr 2019")
+(@uranther@hackers.town)
+
+"...thank you for wonderful resources at [rgz.ee](/) and for spreading the message of simplification."<br>&mdash;
+[Rakhim](https://twitter.com/freetonik/status/1119585974407680000 "20 Apr 2019")
+(@freetonik)
+
 "Even though it's Thursday, I have a reason to pick one early entry for the Follow Friday mentions: @romanzolotarev<br>You guys this man is a wizard"<br>&mdash;
 [h3artbl33d](https://twitter.com/h3artbl33d/status/1093472714415898624 "07 Feb 2019")
 (@h3artbl33d)
@@ -29,11 +41,11 @@ _Author_<br>
 [Isak Holmstr&ouml;m](https://lobste.rs/s/fbopnk/roman_zolotarev "06 Jan 2019")
 (iah@fosstodon.org)
 
-"@romanzolotarev Thanks for all the Twitter updates over 2018 It is much appreciated...  and is a big help to users of OpenBSD...  Peace out and have a great 2019..."<br>&mdash;
+"@romanzolotarev Thanks for all the Twitter updates over 2018 It is much appreciated... and is a big help to users of OpenBSD... Peace out and have a great 2019..."<br>&mdash;
 [Tom Smyth](https://twitter.com/ogmaconnect1/status/1079815117494280192 "31 Dec 2018")
 (@ogmaconnect1)
 
-"Thanks Roman for all your documentation work ... and all your guides for people who have yet to learn the knowledge they seek is in the man pages...  thanks for your Work on making BSD more Accessible ...
+"Thanks Roman for all your documentation work ... and all your guides for people who have yet to learn the knowledge they seek is in the man pages... thanks for your Work on making BSD more Accessible ...
 Большое спасибо вам"<br>&mdash;
 [Tom Smyth](https://twitter.com/ogmaconnect1/status/1077710290031165440 "25 Dec 2018")
 (@ogmaconnect1)
@@ -64,14 +76,14 @@ _Author, sysadmin, and trainer_<br>
 [Dmytro Gladkyi](https://twitter.com/DmytroGladkyi/status/1063197232135106560 "15 Nov 2018")
 (@DmytroGladkyi)
 
-"A few months ago, after a 10 year hiatus from @openbsd, @romanzolotarev's posts got me installing 6.3...  Fast forward to today (and 6.4), I've consolidated four #Debian boxes into a single Intel NUC and couldn't be happier: small, power efficient and EASY!  Dev laptop is next!"<br>&mdash;
+"A few months ago, after a 10 year hiatus from @openbsd, @romanzolotarev's posts got me installing 6.3... Fast forward to today (and 6.4), I've consolidated four #Debian boxes into a single Intel NUC and couldn't be happier: small, power efficient and EASY!  Dev laptop is next!"<br>&mdash;
 [Andrew Vieyra](https://twitter.com/andrewvieyra/status/1059804296668217344 "06 Nov 2018")
 (@andrewvieyra)
 
 ---
 
 <p id="ds" class="f4 f3-m f3-l lh-title ni">&#8220;I just found <a
-href="/ssg.html">ssg</a>!  You are so damn cool.  I love your
+href="/ssg.html">ssg</a>!  You are so damn cool. I love your
 approach to things.&#8221;</p>
 
 <img src="/ref/ds.jpeg" class="br-100 w3"><br>
@@ -174,7 +186,7 @@ one drive. Roman, you redefine awesome. Thank you!&#8221;</p>
 [@lambdanerd](https://twitter.com/lambdanerd/status/1036823248158289920 "04 Sep 2018")
 (@lambdanerd)
 
-"I just upgraded my personal server to OpenBSD 6.4. I took advantage of opportunity to replace Jekyll with ssg as a static site generator.  ssg is a shell script with all features I need (simply generating a website from markdown). Thanks to @romanzolotarev !"<br>&mdash;
+"I just upgraded my personal server to OpenBSD 6.4. I took advantage of opportunity to replace Jekyll with ssg as a static site generator. ssg is a shell script with all features I need (simply generating a website from markdown). Thanks to @romanzolotarev !"<br>&mdash;
 [Miguel Vidal](https://twitter.com/mvidallopez/status/1034116416243490816 "27 Aug 2018")
 (@mvidallopez)
 
@@ -263,7 +275,7 @@ _Cofounder of HardenedBSD_<br>
 [Seth Hanford](https://twitter.com/SethHanford/status/1027491291569909760 "9 Aug 2018")
 (@SethHanford)
 
-"Really like how much awareness you create for the bsd cause.  :-)"<br>&mdash;
+"Really like how much awareness you create for the bsd cause. :-)"<br>&mdash;
 [Bas Langernberg](https://twitter.com/BasLangenberg/status/1027258660332994565 "8 Aug 2018")
 (@BasLangenberg)
 
@@ -295,7 +307,7 @@ _OpenBSD developer_<br>
 [nixfloyd](https://twitter.com/nixfloyd/status/1025279453642014720 "3 Aug 2018")
 (@nixfloyd)
 
-"Thank you to all OpenBSD developers for making every workday sane and secure.  Thank you @mischa for @OpenBSDAms.  Thank you @romanzolotarev for writing proper tutorials, which I can sent to colleagues..."<br>&mdash;
+"Thank you to all OpenBSD developers for making every workday sane and secure. Thank you @mischa for @OpenBSDAms. Thank you @romanzolotarev for writing proper tutorials, which I can sent to colleagues..."<br>&mdash;
 [h3artbl33d](https://bsd.network/@h3artbl33d/100445426269783287)
 (@h3artbl33d@bsd\.network "27 Jul 2018")
 
@@ -319,7 +331,7 @@ _OpenBSD developer_<br>
 [Tom Van Looy](https://twitter.com/tvlooy/status/1014649340739104768 "5 Jul 2018")
 (@tvlooy)
 
-"Appreciating your time & effort to help people to switch to BSD.  :) Such nice to see people with motivation to help others"<br>&mdash;
+"Appreciating your time & effort to help people to switch to BSD. :) Such nice to see people with motivation to help others"<br>&mdash;
 [k4m1](https://twitter.com/_k4m1_/status/1014813485287596032 "5 Jul 2018")
 (@\_k4m1\_)
 
@@ -433,7 +445,7 @@ _OpenBSD developer_<br>
 [nixCraft](https://twitter.com/nixcraft/status/991738751666794497 "2 May 2018")
 (@nixcraft)
 
-"I am in love with this setup. Simple. Awesome. Functional.  Efficient."<br>&mdash;
+"I am in love with this setup. Simple. Awesome. Functional. Efficient."<br>&mdash;
 [BuildItBenjamin](https://twitter.com/bl4nk_io/status/989840013650288640 "27 Apr 2018")
 (@bl4nk_io)
 
@@ -479,7 +491,7 @@ find spare couple hours yet :)&#8221;</p>
 [Kai Hendry](https://twitter.com/kaihendry/status/987153377048936448 "20 Apr 2018")
 (@kaihendry)
 
-"It's a nice .cwmrc! I even modeled mine after it. Recommended.  5&nbsp;stars."<br>&mdash;
+"It's a nice .cwmrc! I even modeled mine after it. Recommended. 5&nbsp;stars."<br>&mdash;
 [(((Mischa &#x1F576; &#x1F421; RCX)))](https://twitter.com/mischapeters "19 Apr 2018")
 (@mischapeters)
 
@@ -540,4 +552,4 @@ etc. I felt I should mention that to you &#x1F600;&#8221;</p>
 
 ---
 
-_107 quotes, but who's counting ;)_
+_111 quotes, but who's counting ;)_
