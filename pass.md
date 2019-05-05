@@ -3,7 +3,7 @@ This shell script uses parts of OpenSSL/LibreSSL, which are intended for
 testing purposes only. **You may loose your passwords.** Use it at your
 own risk.
 
-_Tested on [OpenBSD](/openbsd/) 6.3 and 6.4_
+_Tested on [OpenBSD](/openbsd/) 6.3, 6.4, and 6.5_
 
 # Manage passwords with openssl(1) and oathtool(1)
 
