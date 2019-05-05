@@ -113,6 +113,7 @@ h1, h2, h3, h4 { margin-bottom: 0; }
 .f7 { font-size: .75rem; }
 .fl { float: left; }
 .fs-normal{ font-style: normal; }
+.h1 { height: 1rem; }
 .h2 { height: 2rem; }
 .h3 { height: 4rem; }
 .h4 { height: 8rem; }
@@ -169,14 +170,14 @@ h1, h2, h3, h4 { margin-bottom: 0; }
 .tracked-tight { letter-spacing: -.05em; }
 .underline { text-decoration: underline; }
 .v-base { vertical-align: baseline; }
-.v-top { vertical-align: top; }
 .v-mid { vertical-align: middle; }
+.v-top { vertical-align: top; }
 .w-100 { width: 100%; }
 .w-20 { width: 20%; }
 .w-50 { width: 50%; }
 .w-80 { width: 80%; }
 .w2 { width: 2rem; }
-.w3 { width: 3rem; }
+.w3 { width: 4rem; }
 .w4 { width: 8rem; }
 .w5 { width: 16rem; }
 .w6 { width: 32rem; }
