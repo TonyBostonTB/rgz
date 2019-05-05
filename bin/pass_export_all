@@ -1,17 +1,26 @@
-#!/bin/sh
+#!/bin/sh -e
 #
-# https://www.romanzolotarev.com/bin/pass_export_all
-# Copyright 2018 Roman Zolotarev <hi@romanzolotarev.com>
+# https://rgz.ee/bin/pass_export_all
+# Copyright 2018-2019 Roman Zolotarev <hi@romanzolotarev.com>
 #
-set -e
 
-fail() { echo "$1"; exit 1; }
+PASS="$HOME/bin/pass"
 
-printf 'Password: '; stty -echo; read -r pass; stty echo; printf '\n'
-if [ -z "$pass" ]; then fail 'The password cannot be empty.'; fi
+printf 'Password: '
+stty -echo
+read -r pass
+stty echo
+printf '\n'
 
-for id in $(crypt pass ls "$1"); do
-  echo "$id"
-  crypt pass export "$id" "$pass"
-  echo '=='
+if test -z "$pass"
+then
+	echo 'failed: no password'
+	exit 1
+fi
+
+for id in $("$PASS" ls "$1")
+do
+	echo "$id"
+	"$PASS" export "$id" "$pass"
+	echo ---
 done

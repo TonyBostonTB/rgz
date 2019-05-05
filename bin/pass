@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/sh -e
 #
-# https://www.romanzolotarev.com/bin/pass
-# Copyright 2018 Roman Zolotarev <hi@romanzolotarev.com>
+# https://rgz.ee/bin/pass
+# Copyright 2018-2019 Roman Zolotarev <hi@romanzolotarev.com>
 #
 # Permission to use, copy, modify, and/or distribute this software for any
 # purpose with or without fee is hereby granted, provided that the above
@@ -15,7 +15,6 @@
 # ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 # OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #
-set -e
 
 fail() { echo "$1"; exit 1; }
 should_exist() { if [ ! -f "$1" ]; then fail "Can't find $1."; fi; }
@@ -93,11 +92,11 @@ encrypt() {
 
   echo "$key" |
     openssl rsautl -encrypt -pubin -inkey "$public_key" |
-      openssl enc -base64 -out "$key_file" >/dev/null 2>&1 ||
+      openssl enc -md md5 -base64 -out "$key_file" >/dev/null 2>&1 ||
       fail 'Encryption failed.'
 
   echo "$cleartext" |
-    openssl enc -aes-256-cbc -base64 -salt -k "$key" -out "$enc_file"
+    openssl enc -md md5 -aes-256-cbc -base64 -salt -k "$key" -out "$enc_file"
 
   cleartext=''
   key=''
@@ -153,7 +152,7 @@ decrypt() {
   else
     key=$(openssl enc -d -base64 -in "$key_file"|openssl rsautl -passin "pass:$pass" -decrypt -inkey "$private_key" 2>/dev/null)
   fi
-  openssl enc -aes-256-cbc -d -base64 -k "$key" -in "$enc_file" 2>/dev/null
+  openssl enc -md md5 -aes-256-cbc -d -base64 -k "$key" -in "$enc_file" 2>/dev/null
   rm "$key_file" "$enc_file"
 }
 
