@@ -52,7 +52,7 @@ Make sure `ssg5` and `lowdown` or `Markdown.pl` are in your `$PATH`:
 $ <b>PATH="$HOME/bin:$PATH"</b>
 $ <b>mkdir src dst</b>
 $ <b>echo '# Hello, World!' > src/index.md</b>
-$ <b>echo '&lt;html&gt;&lt;title&gt;&lt;/title&gt;' > src/_header.md</b>
+$ <b>echo '&lt;html&gt;&lt;title&gt;&lt;/title&gt;' > src/_header.html</b>
 $ <b>bin/ssg5 src dst 'Test' 'http://www'</b>
 ./index.md
 [ssg] 1 files, 1 url
