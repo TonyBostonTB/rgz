@@ -5,14 +5,6 @@ test -d "$1" || { >&2 echo "usage: ${0##*/} src"; exit 1; }
 src=$(mktemp -d)
 cp -R "$1"/* "$src"
 
-echo "ssg3 (clean)"
-time (for i in $(jot 5); do
-dst=$(mktemp -d)
-ssg3 "$src" "$dst" 'title' 'http://www' >/dev/null 2>&1
-rm -rf "${dst:?}"
-printf '.'
-done)
-
 echo "ssg4 (clean)"
 time (for i in $(jot 5); do
 dst=$(mktemp -d)
@@ -21,24 +13,32 @@ rm -rf "${dst:?}"
 printf '.'
 done)
 
-dst3=$(mktemp -d)
-dst4=$(mktemp -d)
-
-echo "ssg3 (incremental)"
-ssg3 "$src" "$dst3" 'title' 'http://www' >/dev/null 2>&1
+echo "ssg5 (clean)"
 time (for i in $(jot 5); do
-rnd=$(jot -rcs '' 20 97 122)
-echo '.' > "$src/$rnd"
-ssg3 "$src" "$dst3" 'title' 'http://www' >/dev/null 2>&1
+dst=$(mktemp -d)
+ssg5 "$src" "$dst" 'title' 'http://www' >/dev/null 2>&1
+rm -rf "${dst:?}"
 printf '.'
 done)
 
+dst3=$(mktemp -d)
+dst4=$(mktemp -d)
+
 echo "ssg4 (incremental)"
-ssg4 "$src" "$dst4" 'title' 'http://www' >/dev/null 2>&1
+ssg4 "$src" "$dst3" 'title' 'http://www' >/dev/null 2>&1
 time (for i in $(jot 5); do
 rnd=$(jot -rcs '' 20 97 122)
 echo '.' > "$src/$rnd"
-ssg4 "$src" "$dst4" 'title' 'http://www' >/dev/null 2>&1
+ssg4 "$src" "$dst3" 'title' 'http://www' >/dev/null 2>&1
+printf '.'
+done)
+
+echo "ssg5 (incremental)"
+ssg5 "$src" "$dst4" 'title' 'http://www' >/dev/null 2>&1
+time (for i in $(jot 5); do
+rnd=$(jot -rcs '' 20 97 122)
+echo '.' > "$src/$rnd"
+ssg5 "$src" "$dst4" 'title' 'http://www' >/dev/null 2>&1
 printf '.'
 done)
 
