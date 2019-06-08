@@ -2,13 +2,16 @@
 
 stty status '^T'
 
+JAVA_HOME="/usr/local/jdk-1.8.0"
+NODE_HOME="$HOME/.node"
+
 LC_ALL='en_US.UTF-8'
-PATH="$HOME/.node/bin:$HOME/bin:$PATH"
+PATH="$JAVA_HOME/bin:$NODE_HOME/bin:$HOME/bin:$PATH"
 PS1='\e[3m\W \e[0m'
 TERM='xterm-256color'
-
 VISUAL='vi'
-export LC_ALL PATH PS1 VISUAL TERM
+
+export LC_ALL PATH PS1 TERM VISUAL JAVA_HOME
 
 # shellcheck disable=SC2086
 update_complete_pass() {
@@ -25,7 +28,7 @@ pass_edit()	{ pass edit	"$1"; }
 pass_show()	{ pass show	"$1"; }
 pass_export()	{ pass export	"$1"; }
 
-t()	{ tmux new -As 0; }
+t()	{ tmux new -DAs 0; }
 
 c()	{ stmux 'conf'	'prv/conf'; }
 j()	{ stmux 'j'	'prv/j'		'vi my.journal'; }
