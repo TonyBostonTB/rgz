@@ -34,6 +34,12 @@ main() {
 			doas cp -v \
 				"$BASE/s0/etc/relayd.conf" \
 				"$BASE/s0/etc/httpd.conf" /etc/
+			doas rm -f "/etc/ssl/s1.pem"
+			doas rm -f "/etc/ssl/s1.crt"
+			doas rm -f "/etc/ssl/s1.crt.bak"
+			doas rm -f "/etc/ssl/private/s1.key"
+			doas cp "$BASE/s1/etc/ssl/s1".* "/etc/ssl/"
+			doas cp "$BASE/s1/etc/ssl/private/s1.key" "/etc/ssl/private/"
 			doas rcctl enable httpd
 			doas rcctl enable slowcgi
 			doas rcctl enable relayd
