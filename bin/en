@@ -1,0 +1,18 @@
+#!/bin/sh -e
+test -f "$1" || { >&2 echo "usage: ${0##*/} <existing_script>"; exit 1; }
+test -x "$(which entr)" || exit 2
+test -x "$(which node)" || exit 3
+
+a=$(readlink -f "$1")
+
+if test -n "$2"
+then
+	test -d "$2" || { >&2 echo "$2: no dir"; exit 1; }
+	wa="$2/$1"
+else
+	wa="$a"
+fi
+
+tmux split-window -p 95 "vim $a"
+tmux split-window -p 40 -dh \
+"ls $wa | entr -rc sh -c 'echo $a;node $a'"
