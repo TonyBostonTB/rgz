@@ -34,7 +34,6 @@ Edit `/etc/X11/xenodm/Xresources`:
 	xlogin.Login.face:             fixed-13
 	xlogin.Login.failFace:         fixed-13
 	xlogin.Login.promptFace:       fixed-13
-	```
 
 Edit `/etc/X11/xenodm/Xsetup_0`:
 
