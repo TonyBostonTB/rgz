@@ -4,13 +4,13 @@ Date of publication: 01 July 2019
 
 ## 1. General Provisions
 
-1.1. Company RGZ.EE, registry code 14694779, address Sepapaja 6,
+1.1. Company RGZ.EE OÜ, registry code 14694779, address Sepapaja 6,
 Tallinn 15551, Estonia) (hereinafter &mdash; the Company) offers
-Internet users (hereinafter &mdash; the User) the opportunity to
-use its Services on the terms and conditions of this User Agreement
-(hereinafter &mdash; the Agreement, User Agreement). This Agreement
-shall take effect upon the User's express agreement with its terms
-according to Clause 1.4 hereof.
+Internet users (hereinafter &mdash; the User) the opportunity to use its
+Services on the terms and conditions of this User Agreement (hereinafter
+&mdash; the Agreement, User Agreement). This Agreement shall take
+effect upon the User's express agreement with its terms according to
+Clause 1.4 hereof.
 
 1.2. The Company offers to the User access to Services. All currently
 available Services as well as their development and/or addition of
