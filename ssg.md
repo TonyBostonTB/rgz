@@ -166,6 +166,7 @@ $ <b>~/bin/s /var/www/htdocs/www</b>
 [high5.nl](https://high5.nl/)<br>
 [matthewgraybosch.com](https://matthewgraybosch.com/)<br>
 [mvidal.net](https://mvidal.net/)<br>
+[ols.wtf](https://ols.wtf/)<br>
 [openbsd.amsterdam](https://openbsd.amsterdam/?rz)<br>
 [openbsd.space](https://openbsd.space/)<br>
 [romanzolotarev.com](https://www.romanzolotarev.com/) &mdash; obviously ;)<br>

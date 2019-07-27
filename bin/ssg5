@@ -29,10 +29,10 @@ main() {
 
 	IGNORE=$(
 		if ! test -f "$src/.ssgignore"
-    then
-      printf ' ! -path "*/.*"'
-      return
-    fi
+		then
+			printf ' ! -path "*/.*"'
+			return
+		fi
 		while read -r x
 		do
 			test -n "$x" || continue
