@@ -39,6 +39,7 @@ v()	{ stmux 'v'	'prv/openvpn'	'doas openvpn --config default.ovpn'; }
 alias bsdj='sssg src/bsdj'
 alias oams='sssg src/oams'
 alias rgz='sssg src/rgz'
+alias lc='sssg src/lc'
 alias wvr='sssg src/wvr'
 alias rgzm='sssg prv/m'
 alias runbsd='sssg src/runbsd'
@@ -62,8 +63,8 @@ xmv()	{ test -n "$1" || return; mkdir -p "$1"; sxiv -tor . | while read -r f; do
 x()	{ sxiv -tor "${1:-.}"; }
 
 aria()	{ mkdir -p "$HOME/downloads" && (cd "$HOME/downloads" && aria2c "$1"); }
-yt()	{ mkdir -p "$HOME/downloads" && (cd "$HOME/downloads" && youtube-dl "$1"); }
-yl()	{ mkdir -p "$HOME/downloads" && (cd "$HOME/downloads" && youtube-dl -f 'bestvideo[height<=144]+bestaudio/best[height<=144]' "$1"); }
+yt()	{ mkdir -p "$HOME/downloads" && (cd "$HOME/downloads" && python3 "$HOME/bin/youtube-dl" "$1"); }
+yl()	{ mkdir -p "$HOME/downloads" && (cd "$HOME/downloads" && python3 "$HOME/bin/youtube-dl" -f 'bestvideo[height<=144]+bestaudio/best[height<=144]' "$1"); }
 
 m_sd()	{ doas "$HOME/bin/mnt_crypto"	'36a604aa7599cf63.a' 'fdfc727794396746.a'; }
 u_sd()	{ doas "$HOME/bin/umnt_crypto"	'36a604aa7599cf63.a'; }
