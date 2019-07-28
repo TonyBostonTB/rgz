@@ -1,21 +1,21 @@
-_Tested on [OpenBSD](/openbsd/) 6.4 with stagit-0.8_
+_Tested on [OpenBSD](/openbsd/) 6.4 and 6.5 with stagit-0.9.2p0_
 
 # Publish Git repositories with stagit(1) on OpenBSD
 
 [stagit(1)](https://git.codemadness.org/stagit/) generates HTML files
-from your git repository. The source of this website, for example:
+from your git repository.  The source of this website, for example:
 [/src/](/src/).
 
 ## Install
 
-Set up [git](/git.html) and [httpd](/openbsd/httpd.html), then install stagit.
+Set up [git](/git.html) and [httpd](/openbsd/httpd.html), then install
+stagit.
 
 <pre>
 # <b>pkg_add stagit</b>
-quirks-3.16 signed on 2018-10-12T15:26:25Z
-stagit-0.8:libssh2-1.8.0p0: ok
-stagit-0.8:libgit2-0.27.2: ok
-stagit-0.8: ok
+quirks-3.164 signed on 2019-07-27T11:44:10Z
+stagit-0.9.2p0:libgit2-0.28.1: ok
+stagit-0.9.2p0: ok
 #
 </pre>
 
