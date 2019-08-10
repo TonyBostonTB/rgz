@@ -1,4 +1,4 @@
-_Tested on [OpenBSD](/openbsd/) 6.6-beta_
+_Tested on [OpenBSD](/openbsd/) 6.4_
 
 # Enable HTTPS with acme-client(1) and Let's Encrypt on OpenBSD
 
@@ -17,7 +17,7 @@ To configure [acme-client(1)](https://man.openbsd.org/acme-client.1),
 add these sections to `/etc/acme-client.conf`:
 
     authority letsencrypt {
-      api url "https://acme-v02.api.letsencrypt.org/directory"
+      api url "https://acme-v01.api.letsencrypt.org/directory"
       account key "/etc/ssl/private/letsencrypt.key"
     }
     domain www.example.com {
@@ -69,7 +69,7 @@ httpd(ok)
 Let's run `acme-client` to create new account and domain keys.
 
 <pre>
-# <b>acme-client -v www.example.com</b>
+# <b>acme-client -vAD www.example.com</b>
 ...
 acme-client: /etc/ssl/www.example.com.crt: created
 acme-client: /etc/ssl/www.example.com.pem: created
@@ -188,11 +188,11 @@ server "new.example.com" {
 ...
 ```
 
-Request a new certificate with the new alternative in it. Verify
+Request a new certificate with the new alternative new in it. Verify
 `httpd.conf` and restart `httpd(8)`:
 
 <pre>
-# <b>acme-client -vF www.example.com</b>
+# <b>acme-client -vFAD www.example.com</b>
 ...
 acme-client: /etc/ssl/www.example.com.crt: created
 acme-client: /etc/ssl/www.example.com.pem: created
@@ -203,3 +203,15 @@ httpd(ok)
 httpd(ok)
 #
 </pre>
+
+---
+
+**Thanks** to
+[Tim Chase](https://twitter.com/gumnos),
+[Mischa Peters](https://twitter.com/mischapeters),
+and [Ve Telko](https://twitter.com/vetelko)
+for reading drafts of this,
+to [Reyk Floeter](https://reykfloeter.com/)
+for [httpd(8)](https://bsd.plumbing)
+and to [Kristaps Dzonsons](https://www.divelog.blue/)
+for [acme-client(1)](https://kristaps.bsd.lv/acme-client/).
