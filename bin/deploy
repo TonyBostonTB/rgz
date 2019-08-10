@@ -71,7 +71,7 @@ rcctl restart relayd
 			ssh s1 'set -xe
 test -f /etc/ssl/s1.crt && mv /etc/ssl/s1.crt /etc/ssl/s1.crt.bak
 acme-client -n www.romanzolotarev.com
-# acme-client -vFAD www.romanzolotarev.com
+acme-client -vF www.romanzolotarev.com
 '"$LINK_CERTS"'
 rcctl reload relayd'
 			mkdir -p "$BASE/s1/etc/ssl/private"
