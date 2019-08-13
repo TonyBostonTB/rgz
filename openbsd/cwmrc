@@ -39,7 +39,7 @@ fontname		"fixed:pixelsize=15"
 snapdist		20
 sticky			yes
 
-autogroup 0		"Firefox"
+# autogroup 0		"Firefox"
 
 command firefox		"firefox"
 command gimp		"gimp"
