@@ -1,2 +1,6 @@
 user-agent: *
 sitemap: https://www.romanzolotarev.com/sitemap.xml
+disallow: /raw/
+noindex: /raw/
+disallow: /src/
+noindex: /src/
