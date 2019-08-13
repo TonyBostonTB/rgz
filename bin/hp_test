@@ -1,0 +1,124 @@
+#!/bin/sh -e
+#
+# https://rgz.ee/bin/hp
+# Copyright 2019 Roman Zolotarev <hi@romanzolotarev.com>
+#
+
+main() {
+	PORT=8888
+
+	init
+	test_down
+	test_down_down
+	test_down_delay_down
+	test_down_up
+	test_up
+	test_up_up
+	test_up_down
+	finalize
+}
+
+##############################################################################
+
+http_server() {
+	printf 'HTTP/1.1 200 OK\r\n\n%s\n' "$*" | nc -Nl "$PORT" >/dev/null
+}
+
+test_down_delay_down() {
+	desc 'down delay down'
+	TEMP=$(mktemp -d)
+  echo "1565000000 http://localhost:$PORT is down" >"$TEMP/out"
+	"$P" "http://localhost:$PORT" 'ok' "$TEMP/out" 2>"$TEMP/err"
+	eq "$(wc -l < "$TEMP/out")" '       2' "logs twice"
+	has "$(cat "$TEMP/out")" 'is still down' 'logs down'
+	has "$(cat "$TEMP/err")" 'is still down' 'says down'
+	rm -rf "${TEMP:?}"
+}
+
+test_down() {
+	desc 'down'
+	TEMP=$(mktemp -d)
+	"$P" "http://localhost:$PORT" 'ok' "$TEMP/out" 2>"$TEMP/err"
+	eq "$(wc -l < "$TEMP/out")" '       1' 'logs once'
+	has "$(cat "$TEMP/out")" 'is down' 'logs down'
+	has "$(cat "$TEMP/err")" 'is down' 'says down'
+	rm -rf "${TEMP:?}"
+}
+
+test_down_down() {
+	desc 'down down'
+	TEMP=$(mktemp -d)
+	"$P" "http://localhost:$PORT" 'ok' "$TEMP/out" 2>/dev/null
+	"$P" "http://localhost:$PORT" 'ok' "$TEMP/out" 2>"$TEMP/err"
+	eq "$(wc -l < "$TEMP/out")" '       2' 'logs twice'
+	has "$(cat "$TEMP/out")" 'is down' 'logs down'
+	eq "$(cat "$TEMP/err")" '' 'says nothing'
+	rm -rf "${TEMP:?}"
+}
+
+test_down_up() {
+	desc 'down up'
+	TEMP=$(mktemp -d)
+	"$P" "http://localhost:$PORT" 'ok' "$TEMP/out" 2>"$TEMP/err"
+	has "$(cat "$TEMP/err")" 'is down' 'says down'
+	http_server 'ok' &
+	"$P" "http://localhost:$PORT" 'ok' "$TEMP/out" 2>"$TEMP/err"
+	eq "$(wc -l < "$TEMP/out")" '       2' 'logs twice'
+	has "$(cat "$TEMP/err")" 'is up' 'says up'
+	has "$(cat "$TEMP/out")" 'is up' 'logs up'
+	has "$(cat "$TEMP/out")" 'is down' 'logs down'
+	rm -rf "${TEMP:?}"
+}
+
+
+test_up() {
+	desc 'up'
+	TEMP=$(mktemp -d)
+	http_server 'ok' &
+	"$P" "http://localhost:$PORT" 'ok' "$TEMP/out" 2>"$TEMP/err"
+	eq "$(wc -l < "$TEMP/out")" '       1' 'logs once'
+	has "$(cat "$TEMP/out")" 'is up' 'logs up'
+	has "$(cat "$TEMP/err")" 'is up' 'says up'
+	rm -rf "${TEMP:?}"
+}
+
+test_up_up() {
+	desc 'up up'
+	TEMP=$(mktemp -d)
+	http_server 'ok' &
+	"$P" "http://localhost:$PORT" 'ok' "$TEMP/out" 2>/dev/null
+	http_server 'ok' &
+	"$P" "http://localhost:$PORT" 'ok' "$TEMP/out" 2>"$TEMP/err"
+	eq "$(wc -l < "$TEMP/out")" '       2' 'logs twice'
+	has "$(cat "$TEMP/out")" 'is up' 'logs up'
+	eq "$(cat "$TEMP/err")" '' 'says nothing'
+	rm -rf "${TEMP:?}"
+}
+
+test_up_down() {
+	desc 'up down'
+	TEMP=$(mktemp -d)
+	http_server 'ok' &
+	"$P" "http://localhost:$PORT" 'ok' "$TEMP/out" 2>/dev/null
+	"$P" "http://localhost:$PORT" 'ok' "$TEMP/out" 2>"$TEMP/err"
+	eq "$(wc -l < "$TEMP/out")" '       2' 'logs twice'
+	has "$(cat "$TEMP/out")" 'is up' 'logs down'
+	has "$(cat "$TEMP/out")" 'is down' 'logs up'
+	has "$(cat "$TEMP/err")" 'is down' 'says down'
+	rm -rf "${TEMP:?}"
+}
+
+##############################################################################
+
+init() { T=0; NOS=0; P="${0%_test}"; }
+finalize() { echo "1..$T"; if test "$NOS" -gt 0
+	then echo "FAILED $NOS/$T"; else echo "PASS"; fi }
+fail() { >&2 echo "$*"; exit 1; }
+no() { T=$((T+1)); echo "no ok $T - $*"; NOS=$((NOS+1)); }
+ok() { T=$((T+1)); echo "ok $T - $*"; }
+has() { if echo "$1" | grep -Eq "$2"; then ok "$3"; else no "$3"
+	printf '\033[31m%s\n\033[m' "$1"; fi }
+eq() { if test "$1" = "$2"; then ok "$3"; else no "$3"
+	printf '\033[32m%s\n\033[31m%s\n\033[m' "$1" "$2"; fi }
+desc() { printf '#\n\033[1m%s\033[m\n' "$*"; }
+main "$@"

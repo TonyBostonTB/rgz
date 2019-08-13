@@ -1,0 +1,75 @@
+#!/bin/sh -e
+#
+# https://rgz.ee/bin/hp
+# Copyright 2019 Roman Zolotarev <hi@romanzolotarev.com>
+#
+# Permission to use, copy, modify, and/or distribute this software for any
+# purpose with or without fee is hereby granted, provided that the above
+# copyright notice and this permission notice appear in all copies.
+#
+# THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+# WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+# ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+# WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+# ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+# OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+#
+
+DELAY=3660 # remind every hour if site is down
+
+main() {
+  test -z "$2" && { echo "usage: ${0##*/} url string log"; exit 1; }
+	URL="$1"
+	STRING="$2"
+	LOG="$3"
+
+  if up
+  then
+    was_up && log 'up'
+    say 'up'
+  else
+    was_down && has_been_for_long && say 'still down'
+    was_down && log 'down'
+    say 'down'
+   fi
+
+}
+
+up() {
+  ftp -MVo - "$URL" 2>/dev/null| grep -Eq "$STRING"
+}
+
+was_up() {
+	test -f "$LOG" &&
+	tail -n 1 "$LOG" |
+	grep -qE 'is up$'
+}
+
+was_down() {
+	test -f "$LOG" &&
+	tail -n 1 "$LOG" |
+	grep -qE 'is down$'
+}
+
+has_been_for_long() {
+	last=$(tail -n 1 "$LOG" | cut -f1 -d' ')
+	now=$(date +%s)
+	test "$((now - last))" -gt $DELAY
+}
+
+say() {
+	message "$1" >&2
+	log "$1"
+}
+
+log() {
+  message "$1" >> "$LOG"
+	exit 0
+}
+
+message() {
+	printf '%s %s is %s\n' "$(date +%s)" "$URL" "$1"
+}
+
+main "$@"
