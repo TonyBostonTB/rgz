@@ -6,6 +6,7 @@ JAVA_HOME="/usr/local/jdk-1.8.0"
 NODE_HOME="$HOME/.node"
 
 LC_ALL='en_US.UTF-8'
+PATH="/bin:/usr/bin:/sbin:/usr/sbin:/usr/X11R6/bin:/usr/local/bin:/usr/local/sbin"
 PATH="$JAVA_HOME/bin:$NODE_HOME/bin:$HOME/bin:$PATH"
 PS1='\e[3m\W \e[0m'
 TERM='xterm-256color'
@@ -63,8 +64,6 @@ xmv()	{ test -n "$1" || return; mkdir -p "$1"; sxiv -tor . | while read -r f; do
 x()	{ sxiv -tor "${1:-.}"; }
 
 aria()	{ mkdir -p "$HOME/downloads" && (cd "$HOME/downloads" && aria2c "$1"); }
-yt()	{ mkdir -p "$HOME/downloads" && (cd "$HOME/downloads" && python3 "$HOME/bin/youtube-dl" "$1"); }
-yl()	{ mkdir -p "$HOME/downloads" && (cd "$HOME/downloads" && python3 "$HOME/bin/youtube-dl" -f 'bestvideo[height<=144]+bestaudio/best[height<=144]' "$1"); }
 
 m_sd()	{ doas "$HOME/bin/mnt_crypto"	'36a604aa7599cf63.a' 'fdfc727794396746.a'; }
 u_sd()	{ doas "$HOME/bin/umnt_crypto"	'36a604aa7599cf63.a'; }
