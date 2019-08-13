@@ -50,7 +50,7 @@ test_down_down() {
 	TEMP=$(mktemp -d)
 	"$P" "http://localhost:$PORT" 'ok' "$TEMP/out" 2>/dev/null
 	"$P" "http://localhost:$PORT" 'ok' "$TEMP/out" 2>"$TEMP/err"
-	eq "$(wc -l < "$TEMP/out")" '       2' 'logs twice'
+	eq "$(wc -l < "$TEMP/out")" '       1' 'logs once'
 	has "$(cat "$TEMP/out")" 'is down' 'logs down'
 	eq "$(cat "$TEMP/err")" '' 'says nothing'
 	rm -rf "${TEMP:?}"

@@ -30,7 +30,7 @@ main() {
     say 'up'
   else
     was_down && has_been_for_long && say 'still down'
-    was_down && log 'down'
+    was_down && exit 0
     say 'down'
    fi
 
@@ -43,13 +43,13 @@ up() {
 was_up() {
 	test -f "$LOG" &&
 	tail -n 1 "$LOG" |
-	grep -qE 'is up$'
+	grep -qE 'up$'
 }
 
 was_down() {
 	test -f "$LOG" &&
 	tail -n 1 "$LOG" |
-	grep -qE 'is down$'
+	grep -qE 'down$'
 }
 
 has_been_for_long() {
