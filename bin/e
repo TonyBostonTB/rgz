@@ -4,7 +4,10 @@ test -x "$(which entr)" || exit 2
 test -x "$(which shellcheck)" || exit 3
 
 a=$(readlink -f "$1")
-b=$(readlink -f "${1}_test")
+if test -r "${1}_test"
+then b=$(readlink -f "${1}_test")
+else b=''
+fi
 
 if test -n "$2"
 then
@@ -18,6 +21,6 @@ fi
 
 test -f "$b" || b="$HOME/bin/no_tests"
 
-tmux split-window -p 95 "vi $a"
+tmux split-window -p 95 "vim $a"
 tmux split-window -p 40 -dh \
 "ls $wa $wb | entr -rc sh -c 'echo $a;shellcheck $a $b && sh $b'"
