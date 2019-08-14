@@ -125,7 +125,8 @@ rcctl reload relayd'
 
 		deps)
 			test -n "$2" || fail "usage: ${0##*/} $1 hostname"
-			scp "$HOME/bin/ssg4" "$HOME/bin/rssg" git@"$2":bin/
+			scp "$HOME/bin/ssg5" "$HOME/bin/rssg" git@"$2":bin/
+			scp "$HOME/bin/hp" "$2":/home/db/
 			scp "$HOME/src/rgz/post-receive" git@"$2":rgz.git/hooks/
 			scp "$HOME/prv/m/post-receive" git@"$2":m.git/hooks/
 			ssh "$2" 'set -xe

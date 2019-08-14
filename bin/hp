@@ -25,14 +25,11 @@ main() {
 	LOG="$3"
 
   if up
-  then
-    was_up && log 'up'
-    say 'up'
+  then was_up || say 'up'
   else
     was_down && has_been_for_long && say 'still down'
-    was_down && exit 0
-    say 'down'
-   fi
+    was_down || say 'down'
+  fi
 
 }
 
@@ -69,7 +66,7 @@ log() {
 }
 
 message() {
-	printf '%s %s is %s\n' "$(date +%s)" "$URL" "$1"
+	printf '%s %s is %s\n' "$(date '+%s %F %T' )" "$URL" "$1"
 }
 
 main "$@"
