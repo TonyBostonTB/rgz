@@ -34,8 +34,10 @@ bind-key MS-s		"bin/screenshot 200"
 
 color activeborder	"#333"
 color inactiveborder	"#000"
+color menubg		"#ffee88"
+color menufg		"#000"
 
-fontname		"fixed:pixelsize=15"
+fontname		"spleen:pixelsize=32"
 snapdist		20
 sticky			yes
 

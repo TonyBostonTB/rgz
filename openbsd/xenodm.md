@@ -1,4 +1,4 @@
-_Tested on [OpenBSD](/openbsd/) 6.3 and 6.4_
+_Tested on [OpenBSD](/openbsd/) 6.3, 6.4, 6.5, 6.6-beta_
 
 # Customize xenodm(1) login screen
 
@@ -7,6 +7,7 @@ _Tested on [OpenBSD](/openbsd/) 6.3 and 6.4_
 Enable [xenodm(1)](https://man.openbsd.org/xenodm.1):
 
 <pre>
+# <b>pkg_add spleen</b>
 # <b>rcctl enable xenodm</b>
 #
 </pre>
@@ -20,7 +21,7 @@ Edit `/etc/X11/xenodm/Xresources`:
 	xlogin.Login.passwdPrompt:     passwd\040
 
 	xlogin.Login.height:           180
-	xlogin.Login.width:            280
+	xlogin.Login.width:            500
 	xlogin.Login.y:                320
 	xlogin.Login.frameWidth:       0
 	xlogin.Login.innerFramesWidth: 0
@@ -31,9 +32,9 @@ Edit `/etc/X11/xenodm/Xresources`:
 	xlogin.Login.inpColor:         black
 	xlogin.Login.promptColor:      #eeeeec
 
-	xlogin.Login.face:             fixed-13
-	xlogin.Login.failFace:         fixed-13
-	xlogin.Login.promptFace:       fixed-13
+	xlogin.Login.face:             spleen-24
+	xlogin.Login.failFace:         spleen-24
+	xlogin.Login.promptFace:       spleen-24
 
 Edit `/etc/X11/xenodm/Xsetup_0`:
 
