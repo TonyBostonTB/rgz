@@ -21,6 +21,7 @@ update_complete_pass() {
   set -A complete_pass_add	-- $pass_list
   set -A complete_pass_edit	-- $pass_list
   set -A complete_pass_export	-- $pass_list
+  set -A complete_p		-- $pass_list
   set -A complete_pass_show	-- $pass_list
 }
 update_complete_pass
@@ -28,6 +29,7 @@ pass_add()	{ pass add	"$1" && update_complete_pass; }
 pass_edit()	{ pass edit	"$1"; }
 pass_show()	{ pass show	"$1"; }
 pass_export()	{ pass export	"$1"; }
+p()		{ pass export	"$1"; }
 
 t()	{ tmux new -DAs 0; }
 
@@ -105,7 +107,5 @@ alias gl='git log --oneline -30'
 alias gp='git push'
 alias gr='git rebase -i HEAD~20'
 alias gs='git status -sb'
-
-alias p='clear'
 
 alias a="vi \$HOME/.profile && . \$HOME/.profile"
