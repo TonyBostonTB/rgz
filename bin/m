@@ -294,7 +294,7 @@ paddle_sync() {
 		e_on=$(date -j -r "$e_at" '+%b %e, %Y')
 		make_file "$DB/members/$m_id/expires_at" "$e_at"
 	else
-		rm "$DB/members/$m_id/expires_at"
+		rm -f "$DB/members/$m_id/expires_at"
 	fi
 
 	case "$sub_state" in
