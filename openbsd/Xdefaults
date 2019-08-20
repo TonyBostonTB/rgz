@@ -7,12 +7,11 @@ Xcursor.size:		96
 Xcursor.theme:		dmz
 Xft.dpi:		133
 
-XTerm*faceName:		spleen:pixelsize=24:antialias=false
-
-XTerm*internalBorder:		10
-XTerm*loginShell:		true
-XTerm*scrollBar:		false
-XTerm*selectToClipboard:	true
+XTerm*faceName:		spleen:pixelsize=24
+XTerm*internalBorder:	10
+XTerm*loginShell:	true
+XTerm*scrollBar:	false
+XTerm*selectToClipboard:true
 
 XTerm*background:	#000
 XTerm*foreground:	#fff
