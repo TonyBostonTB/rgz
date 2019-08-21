@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# https://www.romanzolotarev.com/bin/bat
+# Copyright 2019 Roman Zolotarev <hi@romanzolotarev.com>
+#
+apm="$(apm -m)"
+test "$apm" = 'unknown' && exit 0
+test "$apm" -gt 60 && exit 0
+
+export DISPLAY=:0
+xbacklight -set 0
+xbacklight -set 20
+xbacklight -set 0
+exit 1
