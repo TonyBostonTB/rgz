@@ -1,0 +1,21 @@
+#!/bin/sh -e
+
+dir='/var/www/db/rgz/members'
+
+test -d "$dir" || exit 1
+
+find "$dir" -type d -path "$dir/*" -maxdepth 1 |
+while read -r m
+do
+	f_a="$m/expires_at"
+	test -f "$f_a" && at='a'	|| at='-'
+	f_n="$m/newsletter"
+	test -f "$f_n" && n='N'		|| n='-'
+	d_ss="$m/sponsored"
+	test -d "$d_ss" && ss='S'	|| ss='-'
+	f_s="$m/sponsor"
+	test -f "$f_s" && s='s'		|| s='-'
+	f="$m/email"
+	test -f "$f" && e=$(cat "$f")	|| e=''
+	echo "$m:   $at$n$ss$s $e"
+done
