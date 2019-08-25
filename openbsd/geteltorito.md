@@ -3,9 +3,9 @@ _Tested on [OpenBSD](/openbsd/) 6.3_
 # Make bootable image with geteltorito(1) and dd(1)
 
 
-For example, make a bootable USB disk to update BIOS on ThinkPad
-X1 Carbon 6th gen with [ISO provided by
-Lenovo](https://pcsupport.lenovo.com/de/en/products/LAPTOPS-AND-NETBOOKS/THINKPAD-X-SERIES-LAPTOPS/THINKPAD-X1-CARBON-6TH-GEN-TYPE-20KH-20KG/downloads/DS502282).
+For example, make a bootable USB disk to update BIOS on ThinkPad X1
+Carbon 6th gen with [ISO provided by
+Lenovo](https://support.lenovo.com/us/en/).
 
 Download _BIOS Update 1.30 06 Sep 2018_ and verify the checksum:
 
