@@ -5,7 +5,7 @@
 #
 apm="$(apm -m)"
 test "$apm" = 'unknown' && exit 0
-test "$apm" -gt 60 && exit 0
+test "$apm" -gt 30 && exit 0
 
 export DISPLAY=:0
 xbacklight -set 0

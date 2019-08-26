@@ -128,9 +128,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'ianks/vim-tsx', { 'for': ['tsx'] }
 Plug 'leafgarland/typescript-vim', { 'for': ['tsx', 'ts'] }
 
-Plug 'sbdchd/neoformat', {'for': ['sql', 'sass', 'scss', 'css', 'javascript', 'json', 'html']}
+Plug 'sbdchd/neoformat', {'for': ['sql', 'sass', 'scss', 'css', 'javascript', 'typescript', 'json', 'html']}
   augroup Neoformat
-    autocmd! BufWrite *.sql,*.js,*.json silent! undojoin | Neoformat
+    autocmd! BufWrite *.sql,*.ts,*.js,*.json silent! undojoin | Neoformat
   augroup END
 
 " Linters
