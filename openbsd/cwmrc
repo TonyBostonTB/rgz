@@ -34,14 +34,12 @@ bind-key MS-s		"bin/screenshot 200"
 
 color activeborder	"#333"
 color inactiveborder	"#000"
-color menubg		"#ffee88"
+color menubg		"#a8ff60"
 color menufg		"#000"
 
 fontname		"spleen:pixelsize=32"
 snapdist		20
 sticky			yes
-
-# autogroup 0		"Firefox"
 
 command firefox		"firefox"
 command gimp		"gimp"
