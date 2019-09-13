@@ -26,7 +26,7 @@ main() {
 	test -n "$1" || fail "usage: ${0##*/} action [args]"
 	BASE="$HOME/prv/conf"
 	action="$1"
-	now=$(date +%Y%m%d-%H%M%S)
+	# now=$(date +%Y%m%d-%H%M%S)
 
 	case "$action" in
 		httpd_s0)
@@ -111,6 +111,10 @@ rcctl reload relayd'
 		nsd)
 			test -n "$2" || fail "usage: ${0##*/} $1 hostname"
 			nsd-checkconf "$BASE/s1/var/nsd/etc/nsd.conf"
+			awk '/name/{print$2}' "$BASE/s1/var/nsd/etc/nsd.conf" |
+			while read -r z
+			do nsd-checkzone "$z" "$BASE/s1/var/nsd/zones/master/$z.zone"
+			done
 			scp "$BASE/s1/var/nsd/etc/nsd.conf" "$2":/var/nsd/etc/
 			scp "$BASE/s1/var/nsd/zones/master/"* "$2":/var/nsd/zones/master/
 			ssh "$2" 'set -xe && rcctl restart nsd'
