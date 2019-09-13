@@ -56,6 +56,7 @@ has_been_for_long() {
 }
 
 say() {
+	test -f "$LOG" &&
 	tail -n 1 "$LOG" >&2
 	message "$1" >&2
 	log "$1"
