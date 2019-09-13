@@ -235,7 +235,7 @@ _Cofounder of HardenedBSD_<br>
 [Wesley Moore](https://twitter.com/wezm/status/1029674316252688384 "15 Aug 2018")
 (@wezm)
 
-"Read stories of people running #BSD at [bsdjobs.com/people](https://runbsd.info/people/) it is interesting and motivating. It is edifying experience."<br>&mdash;
+"Read stories of people running #BSD at [runbsd.info/people](https://runbsd.info/people/) it is interesting and motivating. It is edifying experience."<br>&mdash;
 [Vetelko](https://twitter.com/vetelko/status/1029833892382089217 "15 Aug 2018")
 (@vetelko)
 
@@ -401,7 +401,7 @@ _OpenBSD developer_<br>
 
 ---
 
-<p id="rf" class="f4 f3-m f3-l lh-title ni">&#8220;We hired a new dev; thank you a lot, he found us on bsdjobs.com!<br>Great idea!&#8221;</p>
+<p id="rf" class="f4 f3-m f3-l lh-title ni">&#8220;We hired a new dev; thank you a lot...&#8221;</p>
 
 <img src="/ref/rf.jpeg" class="br-100 w3"><br> **Reyk Fl&ouml;ter**<br>
 _OpenBSD developer_<br>

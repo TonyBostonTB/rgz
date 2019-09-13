@@ -32,7 +32,7 @@ cat > "$temp/news/index.md" << EOF
 Stories written by users of BSD operating systems.
 Hosted by [Roman Zolotarev](mailto:hi@romanzolotarev.com)
 
-Subscribe via [RSS](https://bsdjobs.com/people/rss.xml)
+Subscribe via [RSS](https://rgz.ee/people/rss.xml)
 
 - [Aaa Aaa](aaa.html "2018-08-07")
 - [bbb](bbb.html "2018-08-06")
@@ -44,7 +44,7 @@ cat > "$temp/news/index.html" << EOF
 <p>Stories written by users of BSD operating systems.
 Hosted by <a href="mailto:hi@romanzolotarev.com">Roman Zolotarev</a></p>
 
-<p>Subscribe via <a href="https://bsdjobs.com/people/rss.xml">RSS</a></p>
+<p>Subscribe via <a href="https://rgz.ee/people/rss.xml">RSS</a></p>
 
 <ul>
 <li><a href="aaa.html" title="2018-08-07">Aaa Aaa</a></li>
@@ -88,16 +88,16 @@ cat > "$temp/model" << EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-<atom:link href="https://bsdjobs.com/people/rss.xml" rel="self" type="application/rss+xml" />
+<atom:link href="https://rgz.ee/people/rss.xml" rel="self" type="application/rss+xml" />
 <title>People who run BSD</title>
 <description>Stories written by users of BSD operating systems.
 Hosted by Roman Zolotarev</description>
-<link>https://bsdjobs.com/</link>
+<link>https://rgz.ee/</link>
 <lastBuildDate>XXX, XX XXX XXXX XX:XX:XX +XXXX</lastBuildDate>
 
 <item>
-<guid>https://bsdjobs.com/people/aaa.html</guid>
-<link>https://bsdjobs.com/people/aaa.html</link>
+<guid>https://rgz.ee/people/aaa.html</guid>
+<link>https://rgz.ee/people/aaa.html</link>
 <pubDate>XXX, XX XXX XXXX XX:XX:XX +XXXX</pubDate>
 <title>Aaa Aaa runs OpenBSD</title>
 <description><![CDATA[
@@ -106,13 +106,13 @@ Hosted by Roman Zolotarev</description>
 
 <p>Description 1</p>
 
-<p>Set up <a href="https://bsdjobs.com/git.html">git</a> and <a href="https://bsdjobs.com/openbsd/httpd.html">httpd</a>.</p>
+<p>Set up <a href="https://rgz.ee/git.html">git</a> and <a href="https://rgz.ee/openbsd/httpd.html">httpd</a>.</p>
 
 <p>
-<a href="https://bsdjobs.com/people/2018-09-17.html">rel</a>
-<a href="https://bsdjobs.com/n/2018-09-17.html">abs path</a>
-<a href="https://bsdjobs.com/n/">dir</a>
-<a href="https://bsdjobs.com/a/a.html">aa</a><a href="https://bsdjobs.com/b/b.html">bb</a>
+<a href="https://rgz.ee/people/2018-09-17.html">rel</a>
+<a href="https://rgz.ee/n/2018-09-17.html">abs path</a>
+<a href="https://rgz.ee/n/">dir</a>
+<a href="https://rgz.ee/a/a.html">aa</a><a href="https://rgz.ee/b/b.html">bb</a>
 <a href="https://www/n/">full</a>
 <a href="http://www/n/">http</a>
 <a href="mailto:hi@com">email</a>
@@ -120,9 +120,9 @@ Hosted by Roman Zolotarev</description>
 </p>
 
 <p>
-<img src="https://bsdjobs.com/people/m.png">
-<img src="https://bsdjobs.com/n/m.jpeg">
-<img src="https://bsdjobs.com/n.jpeg">
+<img src="https://rgz.ee/people/m.png">
+<img src="https://rgz.ee/n/m.jpeg">
+<img src="https://rgz.ee/n.jpeg">
 <img src="https://www/n.png">
 </p>
 
@@ -130,8 +130,8 @@ Hosted by Roman Zolotarev</description>
 </item>
 
 <item>
-<guid>https://bsdjobs.com/people/bbb.html</guid>
-<link>https://bsdjobs.com/people/bbb.html</link>
+<guid>https://rgz.ee/people/bbb.html</guid>
+<link>https://rgz.ee/people/bbb.html</link>
 <pubDate>XXX, XX XXX XXXX XX:XX:XX +XXXX</pubDate>
 <title>bbb runs OpenBSD</title>
 <description><![CDATA[

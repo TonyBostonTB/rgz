@@ -1,6 +1,5 @@
 I run these websites:<br>
 [romanzolotarev.com](https://www.romanzolotarev.com) (aka [rgz.ee](https://rgz.ee))<br>
-[bsdjobs.com](https://www.bsdjobs.com/)<br>
 [runbsd.info](https://runbsd.info/)<br>
 
 # Find me elsewhere

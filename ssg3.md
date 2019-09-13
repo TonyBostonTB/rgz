@@ -92,7 +92,7 @@ Use my [_styles.css](/style.css) as a starting point.
 
 ## Sitemap
 
-_ssg3_ generates `sitemap.xml` with the list of all page.  Don't
+_ssg3_ generates `sitemap.xml` with the list of all page. Don't
 forget to add absolute URL of the sitemap to your `robot.txt`.<br>For
 example:
 
@@ -170,7 +170,7 @@ If you don't use `*.md` files you can uninstall lowdown(1).
 _ssg2_                       | _ssg3_
 :--                          | :--
 Wraps pages with `<H1>` tag. | Doesn't wrap pages with `<HTML>` tag.
-lowdown(1) is required.      | lowdown(1) is optional.
+lowdown(1) is required. | lowdown(1) is optional.
 
 
 
@@ -212,7 +212,6 @@ $ <b>for f in $(which cat cpio date sh awk find grep printf readlink sort tee wc
 ## Users and forks
 
 [blog.solobsd.org](https://blog.solobsd.org/)<br>
-[bsdjobs.com](https://www.bsdjobs.com/)<br>
 [cryogenix.net](https://cryogenix.net)<br>
 [grosu.nl](https://grosu.nl/)<br>
 [high5.nl](https://high5.nl/)<br>

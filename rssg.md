@@ -51,7 +51,7 @@ Hosted by Roman Zolotarev.
 </em>&lt;/p&gt;
 
 &lt;p&gt;
-Subscribe via &lt;a href="<b>https://bsdjobs.com/people/rss.xml</b>"&gt;RSS&lt;/a&gt;.
+Subscribe via &lt;a href="<b>https://runbsd.info/people/rss.xml</b>"&gt;RSS&lt;/a&gt;.
 &lt;/p&gt;
 
 &lt;ul&gt;

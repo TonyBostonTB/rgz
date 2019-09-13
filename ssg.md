@@ -158,7 +158,6 @@ $ <b>~/bin/s /var/www/htdocs/www</b>
 
 [blog.solobsd.org](https://blog.solobsd.org/)<br>
 [bloguslibrus.fr](https://www.bloguslibrus.fr)<br>
-[bsdjobs.com](https://www.bsdjobs.com/)<br>
 [cryogenix.net](https://cryogenix.net)<br>
 [dethronedemperor.com](https://www.dethronedemperor.com)<br>
 [grosu.nl](https://grosu.nl/)<br>
