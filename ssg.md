@@ -168,6 +168,7 @@ $ <b>~/bin/s /var/www/htdocs/www</b>
 [ols.wtf](https://ols.wtf/)<br>
 [openbsd.amsterdam](https://openbsd.amsterdam/?rz)<br>
 [openbsd.space](https://openbsd.space/)<br>
+[philstjacques.com](http://philstjacques.com/)<br>
 [romanzolotarev.com](https://www.romanzolotarev.com/) &mdash; obviously ;)<br>
 [runbsd.info](https://runbsd.info/)<br>
 [stockersolutions.com](https://www.stockersolutions.com/)<br>
