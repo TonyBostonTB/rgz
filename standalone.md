@@ -29,4 +29,4 @@ So if you're serious about publishing, should you make everything from
 scratch? Fortunately, you don't have to create the universe to make your
 own website.
 
-Try [GitHub Pages](/github-pages.html).
+Try [GitHub Pages](https://pages.github.com/).
