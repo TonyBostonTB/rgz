@@ -30,9 +30,9 @@ Learn fundamentals first. Learn as you build. Keep the web fast,
 safe, neat, and accessible for everyone.&#8221;
 
 <div class="mb2 mt4"><a href="/about.html"><img
-	src="/avatar120.jpeg"
-	class="w3 br-100"
-	title="romanzolotarev.com"></a></div>
+  src="/avatar120.jpeg"
+  class="w3 br-100"
+  title="romanzolotarev.com"></a></div>
 
 **Roman Zolotarev**<br>
 _Die-hard Webmaster_<br>
