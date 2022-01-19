@@ -5,7 +5,7 @@ Date of publication: 01 July 2019
 ## 1. General Provisions
 
 1.1. Company RGZ.EE OÜ, registry code 14694779, address Staapli 3,
-Tallinn 15551, Estonia) (hereinafter &mdash; the Company) offers
+Tallinn 10415, Estonia) (hereinafter &mdash; the Company) offers
 Internet users (hereinafter &mdash; the User) the opportunity to use its
 Services on the terms and conditions of this User Agreement (hereinafter
 &mdash; the Agreement, User Agreement). This Agreement shall take
