@@ -169,9 +169,9 @@ verify () {
   fi
 }
 
-if [ ! "$BASE_DIR" ]; then BASE_DIR="$HOME/.pass"; fi
-if [ ! "$PRIVATE_KEY" ]; then PRIVATE_KEY="$BASE_DIR/.key"; fi
-if [ ! "$PUBLIC_KEY" ]; then PUBLIC_KEY="$BASE_DIR/.key.pub"; fi
+if [ ! "$PASS_BASE_DIR" ]; then PASS_BASE_DIR="$HOME/.pass"; fi
+if [ ! "$PASS_PRIVATE_KEY" ]; then PASS_PRIVATE_KEY="$PASS_BASE_DIR/.key"; fi
+if [ ! "$PASS_PUBLIC_KEY" ]; then PASS_PUBLIC_KEY="$PASS_BASE_DIR/.key.pub"; fi
 if [ "$2" ]; then ID="$2"; fi
 if [ "$3" ]; then PASS="$3"; fi
 
@@ -179,40 +179,40 @@ if [ "$3" ]; then PASS="$3"; fi
 case "$1" in
 
 passphrase)
-  passphrase "$PRIVATE_KEY"
+  passphrase "$PASS_PRIVATE_KEY"
   ;;
 
 
 init)
-  mkdir -p "$(dirname "$PRIVATE_KEY")"; chmod 0700 "$(dirname "$PRIVATE_KEY")"
-  mkdir -p "$(dirname "$PUBLIC_KEY")"; chmod 0700 "$(dirname "$PUBLIC_KEY")"
-  keygen "$PRIVATE_KEY" "$PUBLIC_KEY"
+  mkdir -p "$(dirname "$PASS_PRIVATE_KEY")"; chmod 0700 "$(dirname "$PASS_PRIVATE_KEY")"
+  mkdir -p "$(dirname "$PASS_PUBLIC_KEY")"; chmod 0700 "$(dirname "$PASS_PUBLIC_KEY")"
+  keygen "$PASS_PRIVATE_KEY" "$PASS_PUBLIC_KEY"
   ;;
 
 add)
   should_be_defined "$ID" "id"
-  should_not_exist "$BASE_DIR/$ID"
+  should_not_exist "$PASS_BASE_DIR/$ID"
   printf 'Pass phrase: '; stty -echo; read -r pass; stty echo; printf '\n'
   if [ ! "$pass" ]; then fail 'The pass phrase cannot be empty.'; fi
   openssl rand -base64 10 |
-    openssl dgst -sha256 -passin "pass:$pass" -sign "$PRIVATE_KEY" >/dev/null 2>&1 ||
+    openssl dgst -sha256 -passin "pass:$pass" -sign "$PASS_PRIVATE_KEY" >/dev/null 2>&1 ||
     fail 'Invalid pass phrase.'
   echo 'Press Enter and CTRL-D to complete.'
-  encrypt "$PUBLIC_KEY" "$BASE_DIR/$ID"
-  sign "$PRIVATE_KEY" "$BASE_DIR/$ID" "$pass"
+  encrypt "$PASS_PUBLIC_KEY" "$PASS_BASE_DIR/$ID"
+  sign "$PASS_PRIVATE_KEY" "$PASS_BASE_DIR/$ID" "$pass"
   ;;
 
 import)
   should_be_defined "$ID" "id"
-  should_not_exist "$BASE_DIR/$ID"
-  encrypt "$PUBLIC_KEY" "$BASE_DIR/$ID"
-  sign "$PRIVATE_KEY" "$BASE_DIR/$ID" "$PASS"
+  should_not_exist "$PASS_BASE_DIR/$ID"
+  encrypt "$PASS_PUBLIC_KEY" "$PASS_BASE_DIR/$ID"
+  sign "$PASS_PRIVATE_KEY" "$PASS_BASE_DIR/$ID" "$PASS"
   ;;
 
 show)
   should_be_defined "$ID" "id"
-  verify "$PUBLIC_KEY" "$BASE_DIR/$ID"
-  cleartext="$(decrypt "$PRIVATE_KEY" "$BASE_DIR/$ID")"
+  verify "$PASS_PUBLIC_KEY" "$PASS_BASE_DIR/$ID"
+  cleartext="$(decrypt "$PASS_PRIVATE_KEY" "$PASS_BASE_DIR/$ID")"
   echo "$cleartext"|head -n1
   totp_seed="$(echo "$cleartext"|grep 'totp: '|head -n1|cut -d' ' -f2)"
   if [ "$totp_seed" ]; then
@@ -226,12 +226,12 @@ show)
 
 export)
   should_be_defined "$ID" "id"
-  verify "$PUBLIC_KEY" "$BASE_DIR/$ID"
-  decrypt "$PRIVATE_KEY" "$BASE_DIR/$ID" "$PASS"
+  verify "$PASS_PUBLIC_KEY" "$PASS_BASE_DIR/$ID"
+  decrypt "$PASS_PRIVATE_KEY" "$PASS_BASE_DIR/$ID" "$PASS"
   ;;
 
 ls)
-  cd "$BASE_DIR"
+  cd "$PASS_BASE_DIR"
   find . \( -type f \
     -name "${ID}"\* \
     \! -name \*.enc \
@@ -244,9 +244,9 @@ ls)
 
 edit)
   should_be_defined "$ID" "id"
-  # verify "$PUBLIC_KEY" "$BASE_DIR/$ID"
-  cleartext_file="$BASE_DIR/$ID.cleartext"
-  cleartext=$(decrypt "$PRIVATE_KEY" "$BASE_DIR/$ID")
+  # verify "$PASS_PUBLIC_KEY" "$PASS_BASE_DIR/$ID"
+  cleartext_file="$PASS_BASE_DIR/$ID.cleartext"
+  cleartext=$(decrypt "$PASS_PRIVATE_KEY" "$PASS_BASE_DIR/$ID")
   touch "$cleartext_file"; chmod 0600 "$cleartext_file"
   echo "$cleartext" > "$cleartext_file"
   ${EDITOR:-$(which vi)} "$cleartext_file"
@@ -255,15 +255,15 @@ edit)
   if [ "$(echo "$cleartext"|openssl dgst -r -sha256)" = "$(echo "$after"|openssl dgst -r -sha256)" ]; then
     echo "No changes in $ID"
   else
-    echo "$after"|encrypt "$PUBLIC_KEY" "$BASE_DIR/$ID"
-    sign "$PRIVATE_KEY" "$BASE_DIR/$ID"
+    echo "$after"|encrypt "$PASS_PUBLIC_KEY" "$PASS_BASE_DIR/$ID"
+    sign "$PASS_PRIVATE_KEY" "$PASS_BASE_DIR/$ID"
   fi
   ;;
 
 *)
-  echo 'usage: export BASE_DIR=~/.pass'
-  echo '       export PRIVATE_KEY=~/.pass/.key'
-  echo '       export PUBLIC_KEY=~/.pass/.key.pub'
+  echo 'usage: export PASS_BASE_DIR=~/.pass'
+  echo '       export PASS_PRIVATE_KEY=~/.pass/.key'
+  echo '       export PASS_PUBLIC_KEY=~/.pass/.key.pub'
   echo
   echo '       pass init'
   echo '          | passphrase'
