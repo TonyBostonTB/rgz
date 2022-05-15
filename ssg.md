@@ -66,8 +66,8 @@ HTML files from `src` have priority over Markdown ones. _ssg_ converts
 Markdown files from `src` to HTML in `dst` and then copies HTML files
 from `src` to `dst`. In the following example `src/a.html` wins:
 
-	src/a.md   -> dst/a.html
-	src/a.html -> dst/a.html
+    src/a.md   -> dst/a.html
+    src/a.html -> dst/a.html
 
 ## Incremental updates
 

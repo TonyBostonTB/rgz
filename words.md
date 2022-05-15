@@ -24,11 +24,10 @@ _Thank you for your kind words and [support](sponsors.html)!_
 he keeps this up he'll be my successor. Which is good, we need
 one.&#8221;</p>
 
-<img src="/ref/mwlauthor.jpeg" class="br-100 w3"><br>
+<img src="/ref/mwlauthor.jpeg" class="avatar"><br>
 **Michael Warren Lucas**<br>
 _Author_<br>
-[@mwlauthor]
-(https://twitter.com/mwlauthor/status/1093490147063156738 "07 Feb 2019")<br>
+[@mwlauthor](https://twitter.com/mwlauthor/status/1093490147063156738 "07 Feb 2019")<br>
 [mwl.io](https://mwl.io/)
 
 ---
@@ -60,7 +59,7 @@ _Author_<br>
 for you @romanzolotarev who recently helped with some css. Give him
 follow if you are into openbsd and unix like system&#8221;</p>
 
-<img src="/ref/nixcraft.jpeg" class="br-100 w3"><br>
+<img src="/ref/nixcraft.jpeg" class="avatar"><br>
 **Vivek Gite**<br>
 _Author, sysadmin, and trainer_<br>
 [@nixCraft](https://twitter.com/nixcraft/status/1063025318993297408 "15 Nov 2018")<br>
@@ -86,7 +85,7 @@ _Author, sysadmin, and trainer_<br>
 href="/ssg.html">ssg</a>!  You are so damn cool. I love your
 approach to things.&#8221;</p>
 
-<img src="/ref/ds.jpeg" class="br-100 w3"><br>
+<img src="/ref/ds.jpeg" class="avatar"><br>
 **Derek Sivers**<br>
 _Entrepreneur and book publisher_<br>
 [sivers.org](https://sivers.org "25 Apr 2018")
@@ -164,7 +163,7 @@ inspiration. His insights, writings and occasional ramblings are
 what pushed me to write and share. And he continues to be the number
 one drive. Roman, you redefine awesome. Thank you!&#8221;</p>
 
-<img src="/ref/h3artbl33d.jpeg" class="br-100 w3"><br>
+<img src="/ref/h3artbl33d.jpeg" class="avatar"><br>
 **h3artbl33d**<br>
 [h3artbl33d.nl](https://h3artbl33d.nl/ "18 Sep 2018")
 
@@ -204,7 +203,7 @@ one drive. Roman, you redefine awesome. Thank you!&#8221;</p>
 @romanzolotarev for his BSD advocacy efforts. You're doing amazing
 work and it's fun to read all these stories.&#8221;</p>
 
-<img src="/ref/lattera.jpeg" class="br-100 w3"><br>
+<img src="/ref/lattera.jpeg" class="avatar"><br>
 **Shawn Webb**<br>
 _Cofounder of HardenedBSD_<br>
 [@lattera](https://twitter.com/lattera/status/1033030028773093376 "24 Aug 2018")
@@ -247,7 +246,7 @@ _Cofounder of HardenedBSD_<br>
 
 <p id="je" class="f4 f3-m f3-l lh-title ni">&#8220;Roman implemented what I asked him to and adjusted my X rgb.txt green to a nicer one. I simply sent him the output of 2 echo commands with the exact characters you see in my logo now. It was a good investment for me. I donated almost what I donate to OpenBSD each month. Thanks Roman :)&#8221;</p>
 
-<img src="/ref/je.jpeg" class="br-100 w3"><br> **Jeffrey Allen Neitzel**<br> _Author of Etsh_<br>
+<img src="/ref/je.jpeg" class="avatar"><br> **Jeffrey Allen Neitzel**<br> _Author of Etsh_<br>
 [jan.etsh.nl](https://jan.etsh.nl)<br>
 [v6shell@bsd\.network](https://bsd.network/@v6shell/100533143813396001 "12 Aug 2018")
 
@@ -285,7 +284,7 @@ _Cofounder of HardenedBSD_<br>
 it takes courage to swim upstream instead of drifting along with
 the current.&#8221;</p>
 
-<img src="/ref/mulander.jpeg" class="br-100 w3"><br> **Adam Wo&#x142;k**<br>
+<img src="/ref/mulander.jpeg" class="avatar"><br> **Adam Wo&#x142;k**<br>
 _OpenBSD developer_<br>
 [@mulander](https://twitter.com/mulander/status/1027150795848990721 "8 Aug 2018")
 
@@ -376,7 +375,7 @@ _OpenBSD developer_<br>
 <p id="mp" class="f4 f3-m f3-l lh-title ni">&#8220;Thanx @romanzolotarev for the great
 "corporate" identity! Love the logo and images.&#8221;</p>
 
-<img src="/ref/mp.jpeg" class="br-100 w3"><br> **Mischa Peters**<br> _Founder_<br>
+<img src="/ref/mp.jpeg" class="avatar"><br> **Mischa Peters**<br> _Founder_<br>
 [@OpenBSDAms](https://twitter.com/OpenBSDAms/status/1006095521004642305 "11 Jun 2018")
 
 **OpenBSD Amsterdam**<br> [openbsd.amsterdam](https://openbsd.amsterdam/?rz)
@@ -403,7 +402,7 @@ _OpenBSD developer_<br>
 
 <p id="rf" class="f4 f3-m f3-l lh-title ni">&#8220;We hired a new dev; thank you a lot...&#8221;</p>
 
-<img src="/ref/rf.jpeg" class="br-100 w3"><br> **Reyk Fl&ouml;ter**<br>
+<img src="/ref/rf.jpeg" class="avatar"><br> **Reyk Fl&ouml;ter**<br>
 _OpenBSD developer_<br>
 [@reykfloeter](https://twitter.com/reykfloeter "10 Jun 2018")<br>
 [reykfloeter.com](https://reykfloeter.com/)
@@ -466,7 +465,7 @@ not once. Now I feel kind of tickle going to write something (in
 fact anything, I've got so many things to tell about), but didn't
 find spare couple hours yet :)&#8221;</p>
 
-<img src="/ref/mk.jpeg" class="br-100 w3"><br> **Marina Kuznetcova**<br> _Frontend Engineer_<br>
+<img src="/ref/mk.jpeg" class="avatar"><br> **Marina Kuznetcova**<br> _Frontend Engineer_<br>
 [@mrnkzntcv](https://twitter.com/mrnkzntcv/status/987440001142095873 "21 Apr 2018")
 
 ---
@@ -521,7 +520,7 @@ find spare couple hours yet :)&#8221;</p>
 I appreciate your work - ssg, your how-to's for less familiar users,
 etc. I felt I should mention that to you &#x1F600;&#8221;</p>
 
-<img src="/ref/h3artbl33d.jpeg" class="br-100 w3"><br> **h3artbl33d**<br> _OpenBSD fan_<br>
+<img src="/ref/h3artbl33d.jpeg" class="avatar"><br> **h3artbl33d**<br> _OpenBSD fan_<br>
 [@h3artbl33d](https://twitter.com/h3artbl33d "14 Apr 2018")
 
 ---
@@ -549,7 +548,3 @@ etc. I felt I should mention that to you &#x1F600;&#8221;</p>
 "Bonus points for using the Field Notes ;)"<br>&mdash;
 [BuildItBenjamin](https://twitter.com/bl4nk_io/status/910086740223946753 "19 Sep 2017")
 (@bl4nk_io)
-
----
-
-_111 quotes, but who's counting ;)_
