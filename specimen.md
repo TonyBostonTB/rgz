@@ -1,15 +1,7 @@
-"I like that specimen.txt, man. Good stuff."<br>
-[&#x1F47D;V6Shell(Jeff)&#x1F421;](https://twitter.com/v6shell/status/997128363859902464 "17 May 2018")
-(@v6shell)
-
-# Specimen
-
-What is your favorite font for your terminal or web browser? Make
-a [screenshot](/bin/screenshot) and [toot at
-me](https://bsd.network/@romanzolotarev).
+# specimen
 
 <pre>
-$ <b>curl https://www.romanzolotarev.com/specimen.txt</b>
+$ <b>curl https://rgz.ee/specimen.txt</b>
        `        /*
      0 O o       * vi --
    1 I i L l     *        Main vi command loop.
@@ -33,5 +25,3 @@ $ <b>curl https://www.romanzolotarev.com/specimen.txt</b>
  &#1071;&#1063;&#1057;&#1052;&#1048;&#1061; &#1066;&#1047;&#1068;&#1041;&#1070;&#1069
 $
 </pre>
-
-...or try [Markus Kuhn's verison](specimen-utf8.txt).

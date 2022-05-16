@@ -11,7 +11,9 @@ multiple dates &mdash; <a href="?d=1970-01-01&d=1995-12-04">rgz.ee/d.html?d=1970
 
 <a href="https://github.com/romanzolotarev/rgz/blob/master/d.html">view source</a>
 </pre>
-<script>
+<script type="module" src="/test.js"></script>
+<script type="module">
+  import { test, is } from "/test.js";
   ((root) => {
     const dates = new URLSearchParams(location.search).getAll("d");
     const toIso = (x) => {
@@ -25,39 +27,59 @@ multiple dates &mdash; <a href="?d=1970-01-01&d=1995-12-04">rgz.ee/d.html?d=1970
     const diff = (now) => (x) => new Date(x).valueOf() - now;
     const countDays = (ms) => Math.floor(ms / 1000 / 60 / 60 / 24);
     const countHours = (ms) => Math.floor(ms / 1000 / 60 / 60);
-    const formatNumber = (x) => Math.abs(x).toLocaleString();
+    const abs = (x) =>
+      typeof x === "number" ? Math.abs(x).toLocaleString() : null;
 
-    const addUnits = (singular, plural, x) =>
-      ({
-        [true]: `${formatNumber(x)} ${plural} ago`,
-        [x === -1]: `a ${singular} ago`,
-        [x === 0]: `this ${singular}`,
-        [x === 1]: `in a ${singular}`,
-        [x > 1]: `in ${formatNumber(x)} ${plural}`,
-      }[true]);
+    const addUnits = (article, singular, plural, x) => {
+      if (x > 1) return `in ${abs(x)} ${plural}`;
+      if (x === 1) return `in ${article} ${singular}`;
+      if (x === 0) return `this ${singular}`;
+      if (x === -1) return `${article} ${singular} ago`;
+      return `${abs(x)} ${plural} ago`;
+    };
 
-    const format = ({ time, iso, day, h, d }) =>
-      ({
-        [true]: `${day} &mdash; ${addUnits("day", "days", d)}`,
-        [h < 24 && h > -24]: `${day} &mdash; ${addUnits("hour", "hours", h)}`,
-        [iso === null]: `${time} &mdash; invalid date`,
-      }[true]);
+    const format = ({ time, iso, day, h, d }) => {
+      if (iso === null) return `${time} &mdash; invalid date`;
+      if (h < 24 && h > -24)
+        return `${day} &mdash; ${addUnits("an", "hour", "hours", h)}`;
+      return `${day} &mdash; ${addUnits("a", "day", "days", d)}`;
+    };
 
     const update = (fn, p, n) => (x) => ({ ...x, [n]: fn(x[p]) });
 
-    const render = () =>
-      (root.innerHTML = `<p>${dates
+    const compute = (now, dates) =>
+      dates
         .map((x) => ({ time: x }))
         .map(update(toIso, "time", "iso"))
         .map(update(toDay, "iso", "day"))
-        .map(update(diff(new Date()), "iso", "ms"))
+        .map(update(diff(now), "iso", "ms"))
         .map(update(countHours, "ms", "h"))
         .map(update(countDays, "ms", "d"))
         .map(format)
-        .join("<br>\n")}`);
+        .join("<br>\n");
+
+    const render = () => (root.innerHTML = `<p>${compute(new Date(), dates)}`);
 
     render();
-
     setInterval(render, 1000);
+
+    test("compute()", () => {
+      const now = new Date("2022-05-16T00:00Z");
+      is(compute(now, []), "");
+      is(compute(now, ["2022-"]), "2022- &mdash; invalid date");
+      is(
+        compute(now, ["2022-05-14", "2022-05-16"]),
+        "2022-05-14 &mdash; 2 days ago<br>\n2022-05-16 &mdash; this hour"
+      );
+      is(compute(now, ["2022-05-14T00:00Z"]), "2022-05-14 &mdash; 2 days ago");
+      is(compute(now, ["2022-05-15T00:00Z"]), "2022-05-15 &mdash; a day ago");
+      is(compute(now, ["2022-05-15T22:00Z"]), "2022-05-15 &mdash; 2 hours ago");
+      is(compute(now, ["2022-05-15T23:00Z"]), "2022-05-15 &mdash; an hour ago");
+      is(compute(now, ["2022-05-16T00:00Z"]), "2022-05-16 &mdash; this hour");
+      is(compute(now, ["2022-05-16T01:00Z"]), "2022-05-16 &mdash; in an hour");
+      is(compute(now, ["2022-05-16T02:00Z"]), "2022-05-16 &mdash; in 2 hours");
+      is(compute(now, ["2022-05-17T00:00Z"]), "2022-05-17 &mdash; in a day");
+      is(compute(now, ["2022-05-18T00:00Z"]), "2022-05-18 &mdash; in 2 days");
+    });
   })(document.querySelector(".dates"));
 </script>
