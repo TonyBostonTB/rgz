@@ -5,7 +5,7 @@
 usage
 
 dd/mm/yyyy     &mdash; <a href="?d=04/12/1995">rgz.ee/d.html?d=04/12/1995</a>
-dd-mmm-yyyy    &mdash; <a href="?d=21-jan-1970">rgz.ee/d.html?d=01-jan-1970</a>
+dd-mmm-yyyy    &mdash; <a href="?d=01-jan-1970">rgz.ee/d.html?d=01-jan-1970</a>
 date and time  &mdash; <a href="?d=1970-01-01T00:00:00Z">rgz.ee/d.html?d=1970-01-01T00:00:00Z</a>
 multiple dates &mdash; <a href="?d=1970-01-01&d=1995-12-04">rgz.ee/d.html?d=1970-01-01&d=1995-12-04</a>
 
@@ -14,15 +14,17 @@ multiple dates &mdash; <a href="?d=1970-01-01&d=1995-12-04">rgz.ee/d.html?d=1970
 <script>
   ((root) => {
     const dates = new URLSearchParams(location.search).getAll("d");
-
-    const toDate = (x) => new Date(x).toLocaleString();
-
+    const toIso = (x) => {
+      try {
+        return new Date(x).toISOString();
+      } catch {
+        return null;
+      }
+    };
+    const toDay = (x) => x !== null && new Date(x).toISOString().split("T")[0];
     const diff = (now) => (x) => new Date(x).valueOf() - now;
-
     const countDays = (ms) => Math.floor(ms / 1000 / 60 / 60 / 24);
-
     const countHours = (ms) => Math.floor(ms / 1000 / 60 / 60);
-
     const formatNumber = (x) => Math.abs(x).toLocaleString();
 
     const addUnits = (singular, plural, x) =>
@@ -34,24 +36,25 @@ multiple dates &mdash; <a href="?d=1970-01-01&d=1995-12-04">rgz.ee/d.html?d=1970
         [x > 1]: `in ${formatNumber(x)} ${plural}`,
       }[true]);
 
-    const format = ({ day, iso, h, d }) =>
+    const format = ({ time, iso, day, h, d }) =>
       ({
-        [true]: `${iso} &mdash; ${addUnits("day", "days", d)}`,
-        [h < 24 && h > -24]: `${iso} &mdash; ${addUnits("hour", "hours", h)}`,
-        [iso === "Invalid Date"]: `${day} is invalid`,
+        [true]: `${day} &mdash; ${addUnits("day", "days", d)}`,
+        [h < 24 && h > -24]: `${day} &mdash; ${addUnits("hour", "hours", h)}`,
+        [iso === null]: `${time} &mdash; invalid date`,
       }[true]);
 
     const update = (fn, p, n) => (x) => ({ ...x, [n]: fn(x[p]) });
 
     const render = () =>
       (root.innerHTML = `<p>${dates
-        .map((x) => ({ day: x }))
-        .map(update(toDate, "day", "iso"))
-        .map(update(diff(new Date()), "day", "ms"))
+        .map((x) => ({ time: x }))
+        .map(update(toIso, "time", "iso"))
+        .map(update(toDay, "iso", "day"))
+        .map(update(diff(new Date()), "iso", "ms"))
         .map(update(countHours, "ms", "h"))
         .map(update(countDays, "ms", "d"))
         .map(format)
-        .join("<br>\n")}<br>\n${toDate(new Date())} &mdash; now`);
+        .join("<br>\n")}`);
 
     render();
 
