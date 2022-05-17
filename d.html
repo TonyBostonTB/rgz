@@ -1,21 +1,22 @@
-<h1>dates</h1>
-<div class="dates"></div>
-<hr />
-<pre class="small">
-usage
+<style>
+  #addForm {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+</style>
 
-dd/mm/yyyy     &mdash; <a href="?d=04/12/1995">rgz.ee/d.html?d=04/12/1995</a>
-dd-mmm-yyyy    &mdash; <a href="?d=01-jan-1970">rgz.ee/d.html?d=01-jan-1970</a>
-date and time  &mdash; <a href="?d=1970-01-01T00:00:00Z">rgz.ee/d.html?d=1970-01-01T00:00:00Z</a>
-multiple dates &mdash; <a href="?d=1970-01-01&d=1995-12-04">rgz.ee/d.html?d=1970-01-01&d=1995-12-04</a>
+<div id="dates"></div>
 
-<a href="https://github.com/romanzolotarev/rgz/blob/master/d.html">view source</a>
-</pre>
+<div id="addForm">
+  <input type="date" id="addDateInput" required />
+  <button type="submit" id="addSubmitButton">add date</button>
+</div>
+
 <script type="module" src="/test.js"></script>
 <script type="module">
   import { test, is } from "/test.js";
-  ((root) => {
-    const dates = new URLSearchParams(location.search).getAll("d");
+  (({ datesDiv, addDateInput, addSubmitButton }) => {
     const toIso = (x) => {
       try {
         return new Date(x).toISOString();
@@ -23,26 +24,33 @@ multiple dates &mdash; <a href="?d=1970-01-01&d=1995-12-04">rgz.ee/d.html?d=1970
         return null;
       }
     };
-    const toDay = (x) => x !== null && new Date(x).toISOString().split("T")[0];
-    const diff = (now) => (x) => new Date(x).valueOf() - now;
-    const countDays = (ms) => Math.floor(ms / 1000 / 60 / 60 / 24);
-    const countHours = (ms) => Math.floor(ms / 1000 / 60 / 60);
+    const toDay = (x) => x !== null && new Date(x).toLocaleString();
+    const diff = (now) => (x) => new Date(x) - now;
+    const countDays = (ms) => Math.round(ms / 1000 / 60 / 60 / 24);
+    const countHours = (ms) => Math.round(ms / 1000 / 60 / 60);
+    const countMinutes = (ms) => Math.round(ms / 1000 / 60);
+    const countSeconds = (ms) => Math.round(ms / 1000);
     const abs = (x) =>
       typeof x === "number" ? Math.abs(x).toLocaleString() : null;
 
     const addUnits = (article, singular, plural, x) => {
-      if (x > 1) return `in ${abs(x)} ${plural}`;
-      if (x === 1) return `in ${article} ${singular}`;
-      if (x === 0) return `this ${singular}`;
-      if (x === -1) return `${article} ${singular} ago`;
-      return `${abs(x)} ${plural} ago`;
+      if (x > 1) return `in&nbsp;${abs(x)}&nbsp;${plural}`;
+      if (x === 1) return `in&nbsp;${article}&nbsp;${singular}`;
+      if (x === 0) return `this&nbsp;${singular}`;
+      if (x === -1) return `${article}&nbsp;${singular}&nbsp;ago`;
+      return `${abs(x)}&nbsp;${plural}&nbsp;ago`;
     };
 
-    const format = ({ time, iso, day, h, d }) => {
+    const format = ({ time, iso, day, s, m, h, d }) => {
+      console.log({ s, m, h, d });
       if (iso === null) return `${time} &mdash; invalid date`;
+      if (s < 60 && s > -60)
+        return `${day} &mdash;&nbsp;${addUnits("a", "second", "seconds", s)}`;
+      if (m < 60 && h > -60)
+        return `${day} &mdash;&nbsp;${addUnits("a", "minute", "minutes", m)}`;
       if (h < 24 && h > -24)
-        return `${day} &mdash; ${addUnits("an", "hour", "hours", h)}`;
-      return `${day} &mdash; ${addUnits("a", "day", "days", d)}`;
+        return `${day} &mdash;&nbsp;${addUnits("an", "hour", "hours", h)}`;
+      return `${day} &mdash;&nbsp;${addUnits("a", "day", "days", d)}`;
     };
 
     const update = (fn, p, n) => (x) => ({ ...x, [n]: fn(x[p]) });
@@ -53,16 +61,49 @@ multiple dates &mdash; <a href="?d=1970-01-01&d=1995-12-04">rgz.ee/d.html?d=1970
         .map(update(toIso, "time", "iso"))
         .map(update(toDay, "iso", "day"))
         .map(update(diff(now), "iso", "ms"))
-        .map(update(countHours, "ms", "h"))
         .map(update(countDays, "ms", "d"))
+        .map(update(countHours, "ms", "h"))
+        .map(update(countMinutes, "ms", "m"))
+        .map(update(countSeconds, "ms", "s"))
         .map(format)
         .join("<br>\n");
 
-    const render = () => (root.innerHTML = `<p>${compute(new Date(), dates)}`);
+    const getUrlParams = () => new URLSearchParams(location.search);
+    const getDates = () => getUrlParams().getAll("d");
+
+    const render = () =>
+      (datesDiv.innerHTML = `<p>${compute(new Date(), getDates())}`);
+
+    // render and update
 
     render();
     setInterval(render, 1000);
 
+    // add date input
+    let addDateValue = new Date().toJSON();
+    console.log(addDateValue);
+
+    const changeDate = ({ target: { value } }) => (addDateValue = value);
+    const addDateAndTime = () => addDate(addDateValue);
+
+    const addDate = (value) => {
+      const d = new Date(value).toString();
+      if (d === "Invalid Date") {
+        console.log("failed to add date");
+        return;
+      }
+      const newUrlParams = getUrlParams();
+      newUrlParams.append("d", value);
+      const newUrl = location.origin + location.pathname + "?" + newUrlParams;
+      location.href = newUrl;
+    };
+
+    addDateInput.addEventListener("change", changeDate);
+    addSubmitButton.addEventListener("click", addDateAndTime);
+
+    // tests
+
+    /*
     test("compute()", () => {
       const now = new Date("2022-05-16T00:00Z");
       is(compute(now, []), "");
@@ -81,5 +122,10 @@ multiple dates &mdash; <a href="?d=1970-01-01&d=1995-12-04">rgz.ee/d.html?d=1970
       is(compute(now, ["2022-05-17T00:00Z"]), "2022-05-17 &mdash; in a day");
       is(compute(now, ["2022-05-18T00:00Z"]), "2022-05-18 &mdash; in 2 days");
     });
-  })(document.querySelector(".dates"));
+    */
+  })({
+    datesDiv: document.querySelector("#dates"),
+    addDateInput: document.querySelector("#addDateInput"),
+    addSubmitButton: document.querySelector("#addSubmitButton"),
+  });
 </script>

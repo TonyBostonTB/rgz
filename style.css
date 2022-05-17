@@ -16,6 +16,10 @@ a:visited:hover {
 a:visited {
   color: #334f83;
 }
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
 hr {
   border: 0;
   margin-top: 2rem;
@@ -36,14 +40,16 @@ table {
   width: 100%;
 }
 p {
-  line-height: 1.6rem;
+  line-height: 1.4rem;
 }
 pre {
-  font: 18px/1.4rem monospace;
+  font-size: 18px;
+  line-height: 1.4rem;
   overflow-x: auto;
 }
 code,
 pre {
+  font-family: menlo, monospace;
   text-transform: none;
 }
 pre i {
@@ -69,22 +75,23 @@ pre em {
   font-style: normal;
   background-color: #fda;
 }
-a {
-  text-decoration-thickness: 1px;
-  text-underline-offset: 5px;
-}
 .avatar {
   border-radius: 100%;
   width: 60px;
 }
+input,
+button,
 .button {
+  font-size: 1rem;
+  font-weight: normal;
   display: inline-block;
-  border: #00f solid 1px;
-  padding: 0.5em 1em;
+  border: 1px solid #000;
+  padding: 0.25rem 1rem;
+  margin: 0.25rem;
   text-decoration: none;
 }
 .small {
-  font-size: 0.8rem;
+  font-size: 0.6rem;
 }
 .logo a,
 .small,
@@ -96,7 +103,6 @@ a {
   text-decoration-color: #ccc;
 }
 .code {
-  font-family: monospace;
   white-space: pre;
 }
 
@@ -132,8 +138,11 @@ a {
   pre em {
     color: #000;
   }
+  input,
+  button,
   .button {
-    border-color: #fda;
+    background-color: #000;
+    border-color: #fff;
   }
   .logo a,
   .small a {
