@@ -13,3 +13,12 @@ export const is = (actual, expected) => {
     return false;
   }
 };
+
+export const match = (actual, expected) => {
+  if (actual.match(expected)) {
+    return true;
+  } else {
+    log(`failed\n  pattern: ${expected}\n  acutal:  "${actual}"`);
+    return false;
+  }
+};

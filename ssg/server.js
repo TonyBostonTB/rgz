@@ -6,8 +6,8 @@ const ws = require("ws");
 const watchDirectories = require("./watchDirectories");
 const marked = require("marked");
 
-const ROOT = path.resolve(process.argv[2] || "./");
-const PORT = parseInt(process.argv[3] || "8888", 10);
+const ROOT = path.resolve(process.env.SSG_ROOT || "./");
+const PORT = parseInt(process.env.SSG_PORT || "3000", 10);
 const WS_PORT = PORT - 1;
 const DIV_ID = "_liveReload";
 

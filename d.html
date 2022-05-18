@@ -4,18 +4,23 @@
     flex-flow: row wrap;
     align-items: center;
   }
+  .remove {
+    padding: 0.25rem 0.75rem 0.25rem 0;
+    display: inline-block;
+    width: 0.75rem;
+    margin: 0;
+    color: #888;
+    background: none;
+    cursor: pointer;
+  }
+  .duration {
+    margin-left: 1.5rem;
+  }
 </style>
-
-<div id="dates"></div>
-
-<div id="addForm">
-  <input type="date" id="addDateInput" required />
-  <button type="submit" id="addSubmitButton">add date</button>
-</div>
 
 <script type="module" src="/test.js"></script>
 <script type="module">
-  import { test, is } from "/test.js";
+  import { test, is, match } from "/test.js";
   (({ datesDiv, addDateInput, addSubmitButton }) => {
     const toIso = (x) => {
       try {
@@ -24,7 +29,18 @@
         return null;
       }
     };
-    const toDay = (x) => x !== null && new Date(x).toLocaleString();
+
+    const toDay = (x) => {
+      if (toIso(x) === null) return x;
+      const d = new Date(x);
+      const [day, time] = d.toJSON().split("T");
+      const hms = `${d.getUTCHours()}:${d.getUTCMinutes()}:${d.getUTCSeconds()}`;
+      if (hms === "0:0:0") return day;
+      const [roundedHms] = time.split(".");
+      const [h, m] = roundedHms.split(":");
+      return `${day}&nbsp;${h}:${m}`;
+    };
+
     const diff = (now) => (x) => new Date(x) - now;
     const countDays = (ms) => Math.round(ms / 1000 / 60 / 60 / 24);
     const countHours = (ms) => Math.round(ms / 1000 / 60 / 60);
@@ -42,16 +58,18 @@
     };
 
     const format = ({ time, iso, day, s, m, h, d }) => {
-      console.log({ s, m, h, d });
-      if (iso === null) return `${time} &mdash; invalid date`;
+      if (iso === null) return { time, day, f: `invalid&nbsp;date` };
       if (s < 60 && s > -60)
-        return `${day} &mdash;&nbsp;${addUnits("a", "second", "seconds", s)}`;
-      if (m < 60 && h > -60)
-        return `${day} &mdash;&nbsp;${addUnits("a", "minute", "minutes", m)}`;
+        return { time, day, f: addUnits("a", "second", "seconds", s) };
+      if (m < 60 && m > -60)
+        return { time, day, f: addUnits("a", "minute", "minutes", m) };
       if (h < 24 && h > -24)
-        return `${day} &mdash;&nbsp;${addUnits("an", "hour", "hours", h)}`;
-      return `${day} &mdash;&nbsp;${addUnits("a", "day", "days", d)}`;
+        return { time, day, f: addUnits("an", "hour", "hours", h) };
+      return { time, day, f: addUnits("a", "day", "days", d) };
     };
+
+    const wrapInSpan = ({ time, day, f }) =>
+      `<span class="remove" onclick="remove('${time}')">x</span>${day} <span class="duration">${f}</span>`;
 
     const update = (fn, p, n) => (x) => ({ ...x, [n]: fn(x[p]) });
 
@@ -59,13 +77,14 @@
       dates
         .map((x) => ({ time: x }))
         .map(update(toIso, "time", "iso"))
-        .map(update(toDay, "iso", "day"))
+        .map(update(toDay, "time", "day"))
         .map(update(diff(now), "iso", "ms"))
         .map(update(countDays, "ms", "d"))
         .map(update(countHours, "ms", "h"))
         .map(update(countMinutes, "ms", "m"))
         .map(update(countSeconds, "ms", "s"))
         .map(format)
+        .map(wrapInSpan)
         .join("<br>\n");
 
     const getUrlParams = () => new URLSearchParams(location.search);
@@ -79,12 +98,18 @@
     render();
     setInterval(render, 1000);
 
+    const computeDate = (d) => {
+      const [day, time] = new Date(d).toJSON().split("T");
+      const [roundedTime] = time.split(".");
+      return `${day}T${roundedTime}Z`;
+    };
+
     // add date input
-    let addDateValue = new Date().toJSON();
-    console.log(addDateValue);
+    let addDateValue;
 
     const changeDate = ({ target: { value } }) => (addDateValue = value);
-    const addDateAndTime = () => addDate(addDateValue);
+    const addDateAndTime = () =>
+      addDate(addDateValue || computeDate(new Date()));
 
     const addDate = (value) => {
       const d = new Date(value).toString();
@@ -94,8 +119,11 @@
       }
       const newUrlParams = getUrlParams();
       newUrlParams.append("d", value);
-      const newUrl = location.origin + location.pathname + "?" + newUrlParams;
-      location.href = newUrl;
+      history.pushState(
+        `add ${value}`,
+        "",
+        location.pathname + "?" + newUrlParams
+      );
     };
 
     addDateInput.addEventListener("change", changeDate);
@@ -103,29 +131,49 @@
 
     // tests
 
-    /*
     test("compute()", () => {
       const now = new Date("2022-05-16T00:00Z");
       is(compute(now, []), "");
-      is(compute(now, ["2022-"]), "2022- &mdash; invalid date");
-      is(
+      match(compute(now, ["2022-"]), /invalid&nbsp;date/);
+      match(
         compute(now, ["2022-05-14", "2022-05-16"]),
-        "2022-05-14 &mdash; 2 days ago<br>\n2022-05-16 &mdash; this hour"
+        /2&nbsp;days&nbsp;ago.*this&nbsp;second/s
       );
-      is(compute(now, ["2022-05-14T00:00Z"]), "2022-05-14 &mdash; 2 days ago");
-      is(compute(now, ["2022-05-15T00:00Z"]), "2022-05-15 &mdash; a day ago");
-      is(compute(now, ["2022-05-15T22:00Z"]), "2022-05-15 &mdash; 2 hours ago");
-      is(compute(now, ["2022-05-15T23:00Z"]), "2022-05-15 &mdash; an hour ago");
-      is(compute(now, ["2022-05-16T00:00Z"]), "2022-05-16 &mdash; this hour");
-      is(compute(now, ["2022-05-16T01:00Z"]), "2022-05-16 &mdash; in an hour");
-      is(compute(now, ["2022-05-16T02:00Z"]), "2022-05-16 &mdash; in 2 hours");
-      is(compute(now, ["2022-05-17T00:00Z"]), "2022-05-17 &mdash; in a day");
-      is(compute(now, ["2022-05-18T00:00Z"]), "2022-05-18 &mdash; in 2 days");
+      match(compute(now, ["2022-05-14T00:00Z"]), /2&nbsp;days&nbsp;ago/);
+      match(compute(now, ["2022-05-15T00:00Z"]), /a&nbsp;day&nbsp;ago/);
+      match(compute(now, ["2022-05-15T22:00Z"]), /2&nbsp;hours&nbsp;ago/);
+      match(compute(now, ["2022-05-15T23:00Z"]), /an&nbsp;hour&nbsp;ago/);
+      match(compute(now, ["2022-05-16T00:00Z"]), /this&nbsp;second/);
+      match(compute(now, ["2022-05-16T01:00Z"]), /in&nbsp;an&nbsp;hour/);
+      match(compute(now, ["2022-05-16T02:00Z"]), /in&nbsp;2&nbsp;hours/);
+      match(compute(now, ["2022-05-17T00:00Z"]), /in&nbsp;a&nbsp;day/);
+      match(compute(now, ["2022-05-18T00:00Z"]), /in&nbsp;2&nbsp;days/);
     });
-    */
   })({
     datesDiv: document.querySelector("#dates"),
     addDateInput: document.querySelector("#addDateInput"),
     addSubmitButton: document.querySelector("#addSubmitButton"),
   });
+
+  document.remove = (value) => {
+    const url = new URLSearchParams(location.search)
+      .getAll("d")
+      .filter((x) => x !== value)
+      .map((x) => `d=${x}`)
+      .join("&");
+    history.pushState(`remove ${value}`, "", location.pathname + "?" + url);
+  };
 </script>
+
+<h1>dates</h1>
+
+<div id="dates"></div>
+
+<div id="addForm">
+  <input type="date" id="addDateInput" required />
+  <button type="submit" id="addSubmitButton">add date</button>
+</div>
+
+<p class="small">
+  bookmark this page to save your dates.<br />time displayed in utc.
+</p>

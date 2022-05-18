@@ -4,9 +4,9 @@
   "description": "live reload server",
   "main": "server.js",
   "scripts": {
-    "build": "nodemon build.js ~/src/rgz.ee /tmp/rgz.ee",
-    "rgzee": "nodemon server.js ~/src/rgz.ee",
-    "notes": "nodemon server.js ~/notes 9999 "
+    "build": "node build.js ~/src/rgz.ee /tmp/rgz.ee",
+    "rgzee": "SSG_PORT=8888 SSG_ROOT=~/src/rgz.ee node respawn.js server .",
+    "notes": "SSG_PORT=9999 SSG_ROOT=~/notes node respawn.js server.js ."
   },
   "keywords": [],
   "author": "hi@romanzolotarev.com",

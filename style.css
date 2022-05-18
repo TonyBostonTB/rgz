@@ -2,7 +2,8 @@ html {
   padding: 0 1em;
   margin: 1em auto;
   max-width: 40em;
-  font: 20px sans-serif;
+  font-size: 1.25rem;
+  font-family: arial, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 a {
@@ -27,6 +28,7 @@ hr {
 hr,
 h1,
 h2 {
+  font-family: sans-serif;
   margin-top: 3rem;
 }
 ul {
@@ -43,13 +45,13 @@ p {
   line-height: 1.4rem;
 }
 pre {
-  font-size: 18px;
+  font-size: 1rem;
   line-height: 1.4rem;
   overflow-x: auto;
 }
 code,
 pre {
-  font-family: menlo, monospace;
+  font-family: "menlo", monospace;
   text-transform: none;
 }
 pre i {
@@ -91,7 +93,8 @@ button,
   text-decoration: none;
 }
 .small {
-  font-size: 0.6rem;
+  font-size: 0.9rem;
+  line-height: 1.2rem;
 }
 .logo a,
 .small,
