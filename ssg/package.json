@@ -6,7 +6,8 @@
   "scripts": {
     "build": "node build.js ~/src/rgz.ee /tmp/rgz.ee",
     "rgzee": "SSG_PORT=8888 SSG_ROOT=~/src/rgz.ee node respawn.js server .",
-    "notes": "SSG_PORT=9999 SSG_ROOT=~/notes node respawn.js server.js ."
+    "notes": "SSG_PORT=9999 SSG_ROOT=~/notes node respawn.js server.js .",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "hi@romanzolotarev.com",

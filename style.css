@@ -92,8 +92,11 @@ button,
   margin: 0.25rem;
   text-decoration: none;
 }
+.quote {
+  margin: -0.4rem;
+}
 .small {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   line-height: 1.2rem;
 }
 .logo a,

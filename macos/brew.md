@@ -1,10 +1,10 @@
-_Tested on [macOS](/macos/) 10.13 with Homebrew 1.7_
+_tested on [macos](/macos/) 10.13 with homebrew 1.7_
 
-# Manage packages with brew(1)
+# manage packages with brew(1)
 
-[Homebrew](https://brew.sh/) is a package manager for macOS.
+[homebrew](https://brew.sh/) is a package manager for macos.
 
-## Install
+## install
 
 <pre>
 $ <b>cd /tmp</b>
@@ -17,9 +17,9 @@ $ <b>/usr/bin/ruby install</b>
 $
 </pre>
 
-## Install a package
+## install a package
 
-Install a program with `brew install`, for example, [entr(1)](http://entrproject.org):
+install a program with `brew install`, for example, [entr(1)](http://entrproject.org):
 <pre>
 $ <b>brew install entr</b>
 ==> Downloading https://.../entr-4.1.high_sierra.bottle
@@ -29,10 +29,7 @@ $ <b>brew install entr</b>
 $
 </pre>
 
-To install macOS apps like [VirtualBox](/macos/virtualbox/), for
-example, use `brew cask install`.
-
-## Uninstall a package
+## uninstall a package
 
 <pre>
 $ <b>brew uninstall entr</b>
@@ -40,10 +37,10 @@ Uninstalling /usr/local/Cellar/entr/4.1... (7 files, 40.7KB)
 $
 </pre>
 
-## Clean up
+## clean up
 
 <pre>
-$ <b>brew cleanup; brew cask cleanup</b>
+$ <b>brew cleanup</b>
 ...
 ==> This operation has freed approximatelly 130.2MB of disk space.
 ==> Removing cached downloads
@@ -52,7 +49,7 @@ $ <b>brew cleanup; brew cask cleanup</b>
 $
 </pre>
 
-## Uninstall
+## uninstall
 
 <pre>
 $ <b>cd /tmp</b>

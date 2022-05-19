@@ -1,11 +1,10 @@
-# macOS
+# macos
 
-- [Edit text with TextEdit.app](textedit.html)
-- [Make static site with Jekyll](/jekyll.html)
-- [Manage passwords with security(1)](keychain.html)
-- [Manage packages with brew(1)](brew.html)
-- [Print with cups(1)](cups.html)
-- [Generate SSH keys](/ssh.html)
-- [Edit text with Vim](/vim.html)
-- [Install VirtualBox](virtualbox/)
-- [Create bootable USB drive with OpenBSD installer](openbsd-installer.html)
+- [edit text with textedit.app](textedit.html)
+- [make static site with jekyll](/jekyll.html)
+- [manage passwords with security(1)](keychain.html)
+- [manage packages with brew(1)](brew.html)
+- [print with cups(1)](cups.html)
+- [generate ssh keys](/ssh.html)
+- [edit text with vim](/vim.html)
+- [create bootable usb drive with openbsd installer](openbsd-installer.html)

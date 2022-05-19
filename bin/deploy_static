@@ -1,0 +1,13 @@
+#!/bin/sh
+usage() {
+	echo "usage: "${0}" <server> <remote_dir>" >&2
+	exit 1
+}
+
+test -n "$1" || usage
+test -n "$2" || usage
+
+remote="$1:/var/www/htdocs/$2"
+
+dir="$(dirname "${0}")/.."
+rsync -rupzcv --delete-after "$dir" "$remote"

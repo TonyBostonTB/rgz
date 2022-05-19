@@ -14,7 +14,7 @@ any foreign partitions it finds to the disklabel starting at `i`,
 but that's simply so OpenBSD itself can see and operate on those
 areas of the disk outside of the bounds of GPT/MBR OpenBSD partition.
 
-If you had two foreign partitions, they appear as `i` and `j`.  But
+If you had two foreign partitions, they appear as `i` and `j`. But
 note, if you create those partitions after OpenBSD, you have to add
 them _manually_ to the disklabel, which can be very difficult as
 there's no mechanism so sync this information.
@@ -31,7 +31,7 @@ hint as to the purpose.&#8221;
 
 ---
 
-<img src="/ref/brynet.jpeg" class="br-100 w3">
+<img src="/ref/brynet.jpeg" class="avatar">
 
 **Bryan Steele**<br>
 _OpenBSD Developer_<br>
