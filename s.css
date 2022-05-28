@@ -1,0 +1,10 @@
+html, body { padding: 0; margin: 0; }
+html { max-width: 100%; font-size: 10vmin; scroll-snap-type: y mandatory; }
+p, pre, h1, h2, img, svg { scroll-snap-align: center; }
+p, pre, h1, h2 { margin: 100vh 0; }
+pre { font-size: 0.6em; padding: 1em; overflow-x: auto; }
+p, h1, h2 { text-align: center; }
+img { width: auto; height: auto; max-width: 100vh; max-height: 100vh; }
+svg { width: 100%; height: 100vh; }
+pre { font-size: .8rem; line-height: .9rem; }
+p { line-height: 1rem; }

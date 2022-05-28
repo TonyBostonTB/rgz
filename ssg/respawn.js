@@ -1,15 +1,17 @@
-const { parse, resolve } = require("path");
-const { spawn } = require("child_process");
-const watchDirectories = require("./watchDirectories.js");
+import { parse, resolve } from "path";
+import { spawn } from "child_process";
+import watchDirectories from "./watchDirectories.js";
+import logger from "./logger.js";
 
 (async () => {
   const [_node, _respawn, program, ...directories] = process.argv;
 
+  const log = logger("respawn");
   let nodeServer = null;
   let counter = 0;
 
   const reload = () => {
-    console.log("spawn", counter++, new Date());
+    log(counter++);
     if (nodeServer) nodeServer.kill("SIGTERM");
     const ext = parse(program).ext;
     const tsm = ext === ".ts" ? ["-r", "tsm", program] : [];
@@ -18,15 +20,15 @@ const watchDirectories = require("./watchDirectories.js");
     });
   };
 
-  reload();
   await watchDirectories({
     directories,
     onChange: reload,
     onListening: () =>
-      console.log(
+      log(
         `watching ${directories.map((x) =>
           resolve(x)
         )} and respawning ${program}`
       ),
   });
+  reload();
 })();

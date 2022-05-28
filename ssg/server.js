@@ -1,61 +1,76 @@
-const http = require("http");
-const path = require("path");
-const { readFile } = require("fs/promises");
-const os = require("os");
-const ws = require("ws");
-const watchDirectories = require("./watchDirectories");
-const marked = require("marked");
+import http from "http";
+import path from "path";
+import { readFile } from "fs/promises";
+import os from "os";
+import { WebSocketServer } from "ws";
+import watchDirectories from "./watchDirectories.js";
+import logger from "./logger.js";
+import * as marked from "marked";
 
 const ROOT = path.resolve(process.env.SSG_ROOT || "./");
-const PORT = parseInt(process.env.SSG_PORT || "3000", 10);
+const PORT = parseInt(process.env.SSG_PORT || "8888", 10);
 const WS_PORT = PORT - 1;
-const DIV_ID = "_liveReload";
+const LIVE_RELOAD_NODE_ID = "_liveReload";
+const TITLE = process.env.SSG_TITLE || path.basename(ROOT);
+const log = logger(TITLE);
 
 const relativeFilePath = (filePath, root = ROOT) =>
   path.relative(ROOT, filePath);
+
 const getExt = (filePath) => path.extname(filePath);
 
-const injectIntoMd = (body, filePath) =>
-  injectIntoHtml(marked.parse(body.toString(), { gfm: true }), filePath);
+const injectIntoCSV = (file, filePath) => {
+  const body = file.toString();
+  const html = `<h1>${path.basename(filePath)}</h1><table><tr>${body
+    .split(/\n/)
+    .map((line) =>
+      line === "" ? "" : `<td>${line.split(";").join("</td><td>")}</td>`
+    )
+    .join("</tr><tr>")}</tr></table>`;
+  return injectIntoHtml(html, filePath);
+};
 
-const injectIntoHtml = async (body, filePath) => {
+const withTitle = (body) => {
+  const match = body.match(/<h1[^>]*>([^<>]*)<\/h1>/is);
+  const pageTitle = match && match[1];
+  return body.replace(
+    /{{title}}/,
+    [pageTitle, TITLE].filter((x) => !!x).join(" - ")
+  );
+};
+
+const injectIntoMd = (file, filePath) => {
+  const body = file.toString();
+  return injectIntoHtml(marked.parse(body, { gfm: true }), filePath);
+};
+
+const injectIntoHtml = async (file, filePath) => {
+  const body = file.toString();
   const liveReloadCode = `
 <style>
-#${DIV_ID} {padding:10px;margin-bottom:10px;position:absolute;right:0;top:0px;display:none;}
-.${DIV_ID}-warn {background-color:#fc8;color:#440;}
-.${DIV_ID}-error {background-color:#fba;color:#400;}
-</style><div id="${DIV_ID}"></div>
+#${LIVE_RELOAD_NODE_ID} {padding:10px;margin-bottom:10px;position:absolute;right:0;top:0px;display:none;}
+.${LIVE_RELOAD_NODE_ID}-warn {background-color:#fc8;color:#440;}
+.${LIVE_RELOAD_NODE_ID}-error {background-color:#fba;color:#400;}
+</style><div id="${LIVE_RELOAD_NODE_ID}"></div>
 <script>
 // <![CDATA[
-(({ url, retries, divId }) => {
-  const cssReload = () => {
-    const sheets = [].slice.call(document.getElementsByTagName("link"));
-    const head = document.getElementsByTagName("head")[0];
-    for (var i = 0; i < sheets.length; ++i) {
-      const elem = sheets[i];
-      head.removeChild(elem);
-      const { rel } = elem;
-      if (
-        (elem.href && typeof rel !== "string") ||
-        rel.length == 0 ||
-        rel.toLowerCase() == "stylesheet"
-      ) {
-        const url = elem.href.replace(/(&|\\?)_liveReload=\\d+/, "");
-        elem.href =
-          url +
-          (url.indexOf("?") >= 0 ? "&" : "?") +
-          "_liveReload=" +
-          new Date().getTime();
-      }
-      head.appendChild(elem);
-    }
-  };
+(({ url, retries, nodeId }) => {
+  const cssReload = () =>
+    [...document.getElementsByTagName("link")]
+      .filter(
+        (el) => el.href && typeof el.rel === "string" && el.rel === "stylesheet"
+      )
+      .map((el) => {
+        const href = el.href.replace(/(&|\\?)_liveReload=\\d+/, "");
+        const param = "_liveReload=" + new Date().getTime();
+        el.href = href + (href.indexOf("?") >= 0 ? "&" : "?") + param;
+      });
   const showMessage = (div, kind, text) => {
-    div.className = divId + "-" + kind;
+    div.className = nodeId + "-" + kind;
     div.textContent = text;
     div.style.display = "block";
   };
-  const div = document.getElementById(divId);
+  const div = document.getElementById(nodeId);
   const handleMessageEvent = ({ data }) => {
     const message = JSON.parse(data);
     if (message.documentReload && message.href) {
@@ -91,26 +106,31 @@ const injectIntoHtml = async (body, filePath) => {
   const socketInit = new WebSocket(url);
   socketInit.addEventListener("close", liveReload(1));
   socketInit.addEventListener("message", handleMessageEvent);
-})({ retries: 60, divId: "${DIV_ID}", url: "ws://" + location.hostname + ":" + ${WS_PORT}  });
+})({ retries: 60, nodeId: "${LIVE_RELOAD_NODE_ID}", url: "ws://" + location.hostname + ":" + ${WS_PORT}  });
 // ]]>
 </script>`;
-  try {
-    const header = (
-      await readFile(path.join(ROOT, ".ssgheader.html"))
-    ).toString();
-    const footer = (
-      await readFile(path.join(ROOT, ".ssgfooter.html"))
-    ).toString();
-    return Buffer.from(`${header}${body}${footer}${liveReloadCode}`);
-  } catch (err) {
-    console.log(".ssgheader.html or .ssgfooter.html not found");
-    return Buffer.from(`${body}${liveReloadCode}`);
-  }
+  const mermaid =
+    body.match(/class="mermaid"/is) !== null
+      ? `<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.1/mermaid.js"></script>`
+      : "";
+  if (body.match(/<html>/is) !== null)
+    return Buffer.from(`${mermaid}${body}${liveReloadCode}`);
+  if (httpServer.template)
+    return Buffer.from(
+      withTitle(
+        `${mermaid}${httpServer.template.replace(
+          /{{content}}/,
+          body
+        )}${liveReloadCode}`
+      )
+    );
+  return Buffer.from(`${mermaid}${body}${liveReloadCode}`);
 };
 
-const injectIntoSvg = (body) =>
-  Buffer.from(
-    body.toString().replace(
+const injectIntoSvg = (file) => {
+  const body = file.toString();
+  return Buffer.from(
+    body.replace(
       `</svg>`,
       `<script>
 // <![CDATA[
@@ -118,7 +138,7 @@ const injectIntoSvg = (body) =>
   const handleMessageEvent = ({ data }) => {
     const message = JSON.parse(data);
     if (message && message.documentReload) {
-      console.log("document reload: " + message.filePath);
+      log("document reload: " + message.filePath);
       return location.reload();
     }
   };
@@ -129,7 +149,7 @@ const injectIntoSvg = (body) =>
     }
     const socket = new WebSocket(url);
     socket.addEventListener("error", () => {
-      console.log("reconnecting... " + t + "/" + retries);
+      log("reconnecting... " + t + "/" + retries);
       setTimeout(liveReload(t + 1), 1000);
     });
     socket.addEventListener("open", () => location.reload());
@@ -144,18 +164,16 @@ const injectIntoSvg = (body) =>
 </svg>`
     )
   );
+};
 
 const handleRequest = async (request, response) => {
-  try {
-    const passwd = JSON.parse(
-      (await readFile(path.join(ROOT, ".ssgpasswd.json"))).toString()
-    );
-
+  if (httpServer.passwd) {
+    const passwd = httpServer.passwd;
     const authorization = request.headers.authorization;
     if (!authorization) {
       const err = new Error("not authenticated");
       response.message = "not authenticated";
-      const body = await injectIntoHtml(`<p>not authenticated</p>`);
+      const body = await injectIntoHtml(`<h1>not authenticated</h1>`);
       response.writeHead(401, {
         "www-authenticate": "basic",
         "content-type": "text/html",
@@ -178,7 +196,7 @@ const handleRequest = async (request, response) => {
     ) {
       const err = new Error("not authenticated");
       response.message = "not authenticated";
-      const body = await injectIntoHtml(`<p>not authenticated</p>`);
+      const body = await injectIntoHtml(`<h1>not authenticated</h1>`);
       response.writeHead(401, {
         "www-authenticate": "basic",
         "content-type": "text/html",
@@ -186,22 +204,12 @@ const handleRequest = async (request, response) => {
       });
       return response.end(body);
     }
-  } catch (err) {
-    console.log(".ssgpasswd.json not found");
   }
 
   const logRequest = (
     { socket: { remoteAddress }, method, url },
     { statusCode, message = "" }
-  ) =>
-    console.log(
-      remoteAddress,
-      new Date().toJSON(),
-      method,
-      url,
-      statusCode,
-      message
-    );
+  ) => log(method, statusCode, url, message);
 
   response.on("finish", () => logRequest(request, response));
   if (request.method !== "GET") return;
@@ -215,13 +223,15 @@ const handleRequest = async (request, response) => {
   );
 
   if (getExt(filePath) === "") {
-    console.log("no ext");
+    log("no ext");
   }
 
   const getWrapper = (ext) => {
     switch (ext) {
       case "":
         return injectIntoHtml;
+      case ".csv":
+        return injectIntoCSV;
       case ".md":
         return injectIntoMd;
       case ".html":
@@ -250,13 +260,9 @@ const handleRequest = async (request, response) => {
     return mimeTypes[ext];
   };
 
-  if (
-    [".ssgpasswd.json", ".ssgheader.html", ".ssgfooter.html"].includes(
-      relativeFilePath(filePath)
-    )
-  ) {
+  if ([".ssg.json", ".ssg.html"].includes(relativeFilePath(filePath))) {
     response.message = "no access";
-    const body = await injectIntoHtml(`<p>no access</p>`);
+    const body = await injectIntoHtml(`<h1>no access</h1><p>${pathname}</p>`);
     response.writeHead(403, {
       "content-type": "text/html",
       "content-length": Buffer.byteLength(body),
@@ -294,7 +300,7 @@ const handleRequest = async (request, response) => {
       return response.end(body);
     } catch (err) {
       response.message = "not found";
-      const body = await injectIntoHtml(`<p>${pathname} not found</p>`);
+      const body = await injectIntoHtml(`<h1>not found</h1><p>${pathname}</p>`);
       response.writeHead(404, {
         "content-type": "text/html",
         "content-length": Buffer.byteLength(body),
@@ -305,12 +311,28 @@ const handleRequest = async (request, response) => {
 };
 
 const httpServer = http.createServer(handleRequest);
-httpServer.listen(PORT, () =>
-  console.log(`listening http://localhost:${PORT}`)
-);
+httpServer.listen(PORT, async () => {
+  log(`serving http://localhost:${PORT}`);
+  try {
+    httpServer.passwd = JSON.parse(
+      (await readFile(path.join(ROOT, ".ssg.json"))).toString()
+    ).passwd;
+    log("read .ssg.json");
+  } catch (err) {
+    log(".ssg.json not found");
+  }
+  try {
+    httpServer.template = (
+      await readFile(path.join(ROOT, ".ssg.html"))
+    ).toString();
+    log("read .ssg.html");
+  } catch (err) {
+    log(".ssg.html not found");
+  }
+});
 
-const wss = new ws.WebSocketServer({ port: WS_PORT });
-wss.on("listening", () => console.log(`websocket ws://localhost:${PORT}`));
+const wss = new WebSocketServer({ port: WS_PORT });
+wss.on("listening", () => log(`serving ws://localhost:${WS_PORT}`));
 
 const handleEvent =
   ({ documentReload, cssReload }) =>
@@ -323,10 +345,8 @@ const handleEvent =
           type,
           filePath: relativeFilePath(filePath),
           ...(type === "change" &&
-            [".md", ".html"].includes(getExt(filePath)) &&
-            ![".ssgheader.html", ".ssgfooter.html"].includes(
-              relativeFilePath(filePath)
-            ) && {
+            [".csv", ".md", ".html"].includes(getExt(filePath)) &&
+            ![".ssg.html"].includes(relativeFilePath(filePath)) && {
               href: "/" + relativeFilePath(filePath).replace(".md", ".html"),
             }),
         })
@@ -335,13 +355,16 @@ const handleEvent =
 wss.on("documentReload", handleEvent({ documentReload: true }));
 wss.on("cssReload", handleEvent({ cssReload: true }));
 
-const handleFileChange = (type, filePath) =>
-  console.log(type, filePath) || getExt(filePath) === ".css"
-    ? wss.emit("cssReload", { filePath, type })
-    : wss.emit("documentReload", { filePath, type });
-
-watchDirectories({
-  directories: [ROOT],
-  onChange: handleFileChange,
-  onListening: () => console.log(`watching ${ROOT}`),
-});
+(async () => {
+  const handleFileChange = (type, filePath) => {
+    log(type, relativeFilePath(filePath));
+    return getExt(filePath) === ".css"
+      ? wss.emit("cssReload", { filePath, type })
+      : wss.emit("documentReload", { filePath, type });
+  };
+  await watchDirectories({
+    directories: [ROOT],
+    onChange: handleFileChange,
+    onListening: () => log(`watching ${[ROOT]}`),
+  });
+})();

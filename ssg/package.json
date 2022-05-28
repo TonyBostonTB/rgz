@@ -1,19 +1,31 @@
 {
-  "name": "lrs",
+  "name": "ssg",
   "version": "1.0.0",
-  "description": "live reload server",
+  "description": "static site generator",
+  "repository": "rgzee/ssg",
+  "author": "hi@rgz.ee",
+  "license": "isc",
+  "keywords": [
+    "static site generator",
+    "live reload"
+  ],
   "main": "server.js",
+  "files": [
+    "*.js"
+  ],
+  "bin": {
+    "ssg": "server.js"
+  },
+  "type": "module",
   "scripts": {
     "build": "node build.js ~/src/rgz.ee /tmp/rgz.ee",
-    "rgzee": "SSG_PORT=8888 SSG_ROOT=~/src/rgz.ee node respawn.js server .",
-    "notes": "SSG_PORT=9999 SSG_ROOT=~/notes node respawn.js server.js .",
-    "start": "node server.js"
+    "start": "node respawn.js server.js ~/src/rgz.ee/ssg"
   },
-  "keywords": [],
-  "author": "hi@romanzolotarev.com",
+  "engines": {
+    "node": ">= 16"
+  },
   "dependencies": {
-    "marked": "^4.0.15",
-    "nodemon": "^2.0.16",
+    "marked": "^4.0.16",
     "ws": "^8.6.0"
   }
 }

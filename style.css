@@ -4,7 +4,7 @@ html {
   max-width: 40em;
   font-size: 1.25rem;
   font-family: arial, sans-serif;
-  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 a {
   color: #204fd5;
@@ -42,11 +42,11 @@ table {
   width: 100%;
 }
 p {
-  line-height: 1.4rem;
+  line-height: 1.8rem;
 }
 pre {
   font-size: 1rem;
-  line-height: 1.4rem;
+  line-height: 1.6rem;
   overflow-x: auto;
 }
 code,
@@ -95,15 +95,19 @@ button,
 .quote {
   margin: -0.4rem;
 }
+small,
 .small {
   font-size: 0.8rem;
   line-height: 1.2rem;
 }
+small,
+small a,
 .logo a,
 .small,
 .small a {
   color: #888;
 }
+small a,
 .logo a,
 .small a {
   text-decoration-color: #ccc;
@@ -150,6 +154,7 @@ button,
     background-color: #000;
     border-color: #fff;
   }
+  small a,
   .logo a,
   .small a {
     color: #888;

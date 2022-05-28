@@ -1,7 +1,7 @@
-const { resolve, join } = require("path");
-const { existsSync, watch } = require("fs");
-const { readdir, lstat, access } = require("fs/promises");
-const { exec } = require("child_process");
+import { resolve, join } from "path";
+import { existsSync, watch } from "fs";
+import { readdir, lstat, access } from "fs/promises";
+import { exec } from "child_process";
 
 const THROTTLE_DELAY = 80;
 
@@ -87,4 +87,4 @@ const watchDirectories = async ({
   return watchers;
 };
 
-module.exports = watchDirectories;
+export default watchDirectories;
