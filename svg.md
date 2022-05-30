@@ -11,14 +11,14 @@ ImageMagick-6.9.10.10p1: ok
 #
 </pre>
 
-Convert PNG to JPEG:
+Convert PNG to JPG:
 
 <pre>
-$ <b>convert <em>file</em>.png <em>file</em>.jpeg</b>
+$ <b>convert <em>file</em>.png <em>file</em>.jpg</b>
 $
 </pre>
 
-## Optimize size of JPEG and PNG files
+## Optimize size of JPG and PNG files
 
 Install `jpegoptim` and `optipng`:
 
@@ -40,9 +40,9 @@ $ <b>jpegoptim \</b>
 <i></i><b>--preserve \</b>
 <i></i><b>--preserve-perms \</b>
 <i></i><b>--verbose -m80 \</b>
-<i></i><b><em>file</em>.jpeg</b>
+<i></i><b><em>file</em>.jpg</b>
 Image quality limit set to: 80
-file.jpeg 300x300 24bit N JFIF
+file.jpg 300x300 24bit N JFIF
 [OK] 22417 --> 11849 bytes (<u>47.14%</u>), optimize
 $
 </pre>

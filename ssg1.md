@@ -25,7 +25,7 @@ It generates a site from HTML and Markdown articles.
 1. then wraps articles with a single HTML template,
 1. copies everything from the temporary directory to `$DOCS/`.
 
-[![ssg1](ssg1.jpeg)](ssg1.png)
+[![ssg1](ssg1.jpg)](ssg1.png)
 _240 LoC. [Enlarge, enhance, zoom!](ssg1.png)_
 
 ## Why not Jekyll or "$X"?
@@ -48,7 +48,7 @@ tools.
 ## Performance
 
 **100 pps**. On modern computers `ssg1` generates a hundred pages
-per second.  Half of a time for markdown rendering and another half
+per second. Half of a time for markdown rendering and another half
 for wrapping articles into the template. I heard good static site
 generators work&mdash;twice as fast&mdash;at 200 pps, so there's lots of
 performance that can be gained. ;)

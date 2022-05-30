@@ -31,7 +31,7 @@ hint as to the purpose.&#8221;
 
 ---
 
-<img src="/ref/brynet.jpeg" class="avatar">
+<img src="/ref/brynet.jpg" class="avatar">
 
 **Bryan Steele**<br>
 _OpenBSD Developer_<br>

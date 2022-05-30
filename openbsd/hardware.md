@@ -36,7 +36,7 @@ battery (9 hours), ZZZ, zzz
 ## [ZOTAC CI527 Nano](https://www.zotac.com/us/product/mini_pcs/ci527-nano)
 
 <pre>
-<img src="/hardware/zotac-ci527nano.jpeg" class="w4">
+<img src="/hardware/zotac-ci527nano.jpg" class="w4">
 
 7th Gen Intel i3, passive cooling
 

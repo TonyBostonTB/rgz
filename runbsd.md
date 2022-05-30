@@ -25,5 +25,5 @@ Two weeks later...
 > [FiLiS](https://twitter.com/FiLiS/status/931619067185811459
 "17 Nov 2017"): You're welcome. :)
 
-![Run BSD](/runbsd.jpeg)
+![Run BSD](/runbsd.jpg)
 _Run BSD stickers and the envelope_

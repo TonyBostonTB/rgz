@@ -10,7 +10,7 @@ I use [Field Notes 48-page Memo Books][m]. In those rare moments
 when I'm away from my computer I can jot things down at the rate
 of two hundred pages per year.
 
-![Field Notes Memo Book](/fieldnotes-spacepen.jpeg) _Space pen and 48-page
+![Field Notes Memo Book](/fieldnotes-spacepen.jpg) _Space pen and 48-page
 memo book._
 
 Another thing is [Field Notes Space Pen][s], which lasts forever:

@@ -5,7 +5,7 @@ Flashing the BIOS incorrectly may lead to an unusable system. Follow these instr
 
 # Flash ThinkPad BIOS and boot logo
 
-![boot logo](logo.jpeg)
+![boot logo](logo.jpg)
 
 [Find and download BIOS Update](https://pcsupport.lenovo.com/us/en) for ThinkPad X1 Carbon (for example, `n1mur23w` works for types 20HQ, 20HR, 20K3,
 20K4, version 1.40, released 16 Jul 2019, 23MB).

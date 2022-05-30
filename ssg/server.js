@@ -63,7 +63,8 @@ const injectIntoHtml = async (file, filePath) => {
       .map((el) => {
         const href = el.href.replace(/(&|\\?)_liveReload=\\d+/, "");
         const param = "_liveReload=" + new Date().getTime();
-        el.href = href + (href.indexOf("?") >= 0 ? "&" : "?") + param;
+        const delimiter = href.includes("?") ? "&" : "?";
+        el.href = href + delimiter + param;
       });
   const showMessage = (div, kind, text) => {
     div.className = nodeId + "-" + kind;

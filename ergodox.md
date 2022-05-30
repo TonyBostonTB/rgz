@@ -10,7 +10,7 @@ I've been a happy user of [ErgoDox
 EZ](https://people.ergodox-ez.com/roman-zolotarev/) since 2016.
 It's my favorite part of [the setup](/setup.html).
 
-![ergodox](/ergodox-ez.jpeg)
+![ergodox](/ergodox-ez.jpg)
 _ErgoDox EZ v3 with Cherry MX Brown switches, blank black keycaps
 (and one red DSA keycap), tilt kit._
 

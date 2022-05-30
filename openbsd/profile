@@ -50,13 +50,13 @@ alias runbsd='sssg src/runbsd'
 s_log()	{ test -n "$1" && { rsync -azcvP "$1:/var/www/logs/*" "$HOME/prv/logs/$1/$(date +%Y-%m-%d)/"; }; }
 
 png()	{ optipng -preserve -strip all -o7 $*; }
-jpeg()	{ jpegoptim --strip-all --preserve --preserve-perms --verbose -m80 $@; }
+jpg()	{ jpegoptim --strip-all --preserve --preserve-perms --verbose -m80 $@; }
 j50()	{ jpegoptim --strip-all --preserve --preserve-perms --verbose -m50 $@; }
 j20() 	{ jpegoptim --strip-all --preserve --preserve-perms --verbose -m20 $@; }
-fit()	{ convert -resize 1200 "$1" "$1"; jpeg "$1"; }
-f50()	{ convert -resize 50 "$1" "$1"; jpeg "$1"; }
-f120()	{ convert -resize 120 "$1" "$1"; jpeg "$1"; }
-f600()	{ convert -resize 600 "$1" "$1"; jpeg "$1"; }
+fit()	{ convert -resize 1200 "$1" "$1"; jpg "$1"; }
+f50()	{ convert -resize 50 "$1" "$1"; jpg "$1"; }
+f120()	{ convert -resize 120 "$1" "$1"; jpg "$1"; }
+f600()	{ convert -resize 600 "$1" "$1"; jpg "$1"; }
 
 set -A complete_b -- $(ls "$HOME/box")
 b() { set -A complete_b -- $(ls "$HOME/box") && mkdir -p "$HOME/box/$1" && cd "$HOME/box/$1"; }

@@ -17,7 +17,7 @@ powered by [OpenBSD](/openbsd/) and [Run BSD sticker](/runbsd.html)<br>
 [Nokia 105](/nokia-105.html)<br>
 [Field Notes memo book and SpacePen](/fieldnotes-spacepen.html)
 
-![My desktop](/setup.jpeg "2017")
+![My desktop](/setup.jpg "2017")
 
 Recently I added [ThinkPad X1 Carbon 5th Gen](/lenovo-thinkpad-x1c5.html)
 to make my setup _portable_.

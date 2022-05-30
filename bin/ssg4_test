@@ -46,7 +46,7 @@ mkdir "$temp/dst"
 mkdir "$temp/src"
 cd "$temp/src" || exit 1
 mkdir .git 'a a' b c a 'a/a' 'a/_temp'
-touch 'a.jpeg' 'b/a.png' '_styles.css' '.gitignore' '_header.html'
+touch 'a.jpg' 'b/a.png' '_styles.css' '.gitignore' '_header.html'
 echo '<html>Title 0' > "0.html"
 echo '<h2>Title A</h2>' > a.html
 echo '<H1>Title B</H1>
@@ -55,7 +55,7 @@ echo '<H1>Title B</H1>
 
 log='./b/a.png
 ./b/b.md
-./a.jpeg
+./a.jpg
 ./0.html
 ./a.html'
 
@@ -123,7 +123,7 @@ eq "$model" "$(cat ./b/b.html)" 'markdown generated'
 eq '<html>Title 0' "$(cat "$temp/dst/0.html")" 'exclude pages with HTML tags'
 
 fs="$(find . -type f | sort | xargs)"
-eq "$fs" './.files ./0.html ./a.html ./a.jpeg ./b/a.png ./b/b.html ./sitemap.xml' 'files copied'
+eq "$fs" './.files ./0.html ./a.html ./a.jpg ./b/a.png ./b/b.html ./sitemap.xml' 'files copied'
 
 rm -rf "${temp:?}"
 

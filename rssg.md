@@ -16,7 +16,7 @@ An index file can be in HTML or in Markdown format.
 
 Finally, _rssg_ outputs the feed in XML format.
 
-[![rssg](rssg.jpeg)](rssg.png)
+[![rssg](rssg.jpg)](rssg.png)
 _148 LoC. [grep and sed everything](rssg.png)_
 
 ## Install

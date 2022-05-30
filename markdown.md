@@ -11,7 +11,7 @@ _italic_ in underscores,
 `monospace` in backticks.
 
 [A link](https://www.romanzolotarev.com/).
-![An image](/avatar.jpeg)
+![An image](/avatar.jpg)
 
     # Indented code block
     hello() { echo 'Hello'; }

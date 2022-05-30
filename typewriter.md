@@ -1,7 +1,7 @@
 # Mechanical typewriter Ukraina
 
 
-![Typewriter](typewriter.jpeg)
+![Typewriter](typewriter.jpg)
 
 <pre>
 Cyrillic type, incl. lowercase
@@ -16,7 +16,7 @@ Print sample made with a _similar_ typewriter:
 
 <img
   class="w4"
-  src="typewriter-specimen.jpeg"
+  src="typewriter-specimen.jpg"
   title="&#1081;&#1094;&#1091;&#1082;&#1077;&#1085;"><br>
 
 This is the first keyboard I saw and tried in my life.

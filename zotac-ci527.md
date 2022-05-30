@@ -26,5 +26,5 @@ According to [sysctl(8)](https://man.openbsd.org/sysctl.8) its CPU
 is at 45&deg;C when idle and up to 80&deg;C at the maximum load.
 It cools down in five minutes.
 
-![Zotac CI527](/zotac-ci527.jpeg)
+![Zotac CI527](/zotac-ci527.jpg)
 _Zotac CI527 with [Run BSD](/runbsd.html) sticker on its top_

@@ -46,7 +46,7 @@ mkdir "$temp/dst"
 mkdir "$temp/src"
 cd "$temp/src" || exit 1
 mkdir .git 'a a' b c a 'a/a' 'a/_temp'
-touch 'a.jpeg' 'b/a.png' '_styles.css' '.gitignore' '_header.html'
+touch 'a.jpg' 'b/a.png' '_styles.css' '.gitignore' '_header.html'
 echo '<h1>Title A</h1>' > a.html
 echo '# Title B' > b/b.md
 "$program" "$temp/src" "$temp/dst" 'r' '//www' > "$temp/out" 2> "$temp/err"
@@ -54,7 +54,7 @@ echo '# Title B' > b/b.md
 log=$(cat << EOF
 ./b/a.png
 ./b/b.md
-./a.jpeg
+./a.jpg
 ./a.html
 EOF
 )
@@ -117,7 +117,7 @@ EOF
 eq "$model" "$h" 'markdown generated'
 
 fs="$(find . -type f | sort | xargs)"
-eq "$fs" './.files ./a.html ./a.jpeg ./b/a.png ./b/b.html ./sitemap.xml' 'files copied'
+eq "$fs" './.files ./a.html ./a.jpg ./b/a.png ./b/b.html ./sitemap.xml' 'files copied'
 
 rm -rf "${temp:?}"
 

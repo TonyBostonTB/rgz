@@ -16,7 +16,7 @@ usb, sd, battery, ZZZ, zzz
 
 ## [Dell XPS 15](https://www.dell.com/en-us/shop/dell-laptops/xps-15/spd/xps-15-9560-laptop)
 
-<img src="/hardware/dell-xps-15.jpeg" class="w4">
+<img src="/hardware/dell-xps-15.jpg" class="w4">
 
 <pre>
 15", 7th Gen Intel i7

@@ -254,7 +254,7 @@ watch)
 			-or -name '*.css' \
 			-or -name '*.js' \
 			-or -name '*.txt' \
-			-or -name '*.jpeg' \
+			-or -name '*.jpg' \
 			-or -name '*.png' \)\
 			! -name ".*" \
 			! -path "*/.*" \

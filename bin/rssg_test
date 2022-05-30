@@ -72,8 +72,8 @@ cat > "$temp/news/aaa.html" << EOF
 
 <p>
 <img src="m.png">
-<img src="/n/m.jpeg">
-<img src="/n.jpeg">
+<img src="/n/m.jpg">
+<img src="/n.jpg">
 <img src="https://www/n.png">
 </p>
 EOF
@@ -121,8 +121,8 @@ Hosted by Roman Zolotarev</description>
 
 <p>
 <img src="https://rgz.ee/people/m.png">
-<img src="https://rgz.ee/n/m.jpeg">
-<img src="https://rgz.ee/n.jpeg">
+<img src="https://rgz.ee/n/m.jpg">
+<img src="https://rgz.ee/n.jpg">
 <img src="https://www/n.png">
 </p>
 

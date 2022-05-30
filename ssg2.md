@@ -1,7 +1,7 @@
 <p id="ds" class="quote">&#8220;I just found <b>ssg</b>!  You are so damn
 cool. I love your approach to things.&#8221;</p>
 
-<img src="/ref/ds.jpeg" class="avatar"><br>
+<img src="/ref/ds.jpg" class="avatar"><br>
 **Derek Sivers**<br>
 _Entrepreneur and Book Publisher_<br>
 [sivers.org](https://sivers.org "25 Apr 2018")

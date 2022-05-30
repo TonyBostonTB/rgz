@@ -1,18 +1,18 @@
 # People are saying...
 
 Thanks for [your feedback](/words.html), I'm glad you like my how-tos
-and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
+and scripts. Feel free [to tweet more](https://twitter.com/romanzolotarev)
 :)
 
 <div class="cf f6">
 <div class="fl w-100 pv2"><div class="bg-white ph4 pv2">
         <p class="lh-title ni">&#8220;I signed up personally+signing
-        my team up for this new service by Roman...  but who is
-        @romanzolotarev ..  some say he is a #BSD guy..  I think
-        he is like plato...  not a person. but an academy of many
+        my team up for this new service by Roman... but who is
+        @romanzolotarev .. some say he is a #BSD guy.. I think
+        he is like plato... not a person. but an academy of many
         #BSD schollars sharing knowledge (justification huge output
         for only 1 person)&#8221;</p>
-	<img src="/ref/ts.jpeg" class="avatar">
+	<img src="/ref/ts.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>Tom Smyth</b><br>
         <span class="gray">@ogmaconnect1</span></p>
@@ -22,7 +22,7 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
         have a reason to pick one early entry for the Follow Friday
         mentions: @romanzolotarev<br>You guys this man is a
         wizard"</p>
-	<img src="/ref/h3artbl33d.jpeg" class="avatar">
+	<img src="/ref/h3artbl33d.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>h3artbl33d</b><br>
 	<span class="gray">@h3artbl33d</span></p>
@@ -30,7 +30,7 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
 <div class="fl w-100 pv2"><div class="bg-white ph4 pv2">
         <p class="lh-title ni">&#8220;Yeah, if he keeps this up
         he'll be my successor. Which is good, we need one.&#8221;</p>
-	<img src="/ref/mwlauthor.jpeg" class="avatar">
+	<img src="/ref/mwlauthor.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>Michael Warren Lucas</b><br>
 	<span class="gray">@mwlauthor</span></p>
@@ -42,16 +42,16 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
         6.4), I&#8217;ve consolidated four #Debian boxes into a
         single Intel NUC and couldn&#8217;t be happier: small, power
         efficient and <b>easy</b>! Dev laptop is next!&#8221;</p>
-	<img src="/ref/av.jpeg" class="avatar">
+	<img src="/ref/av.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>Andrew Vieyra</b><br>
         <span class="gray">@andrewvieyra</span></p>
 </div></div>
 <div class="fl w-100 w5-l pv2 pr2-l"><div class="bg-white ph4 pv2">
 	<p class="lh-title ni">&#8220;I just found
-	<b>ssg</b>!  You are so damn cool.  I love your
+	<b>ssg</b>!  You are so damn cool. I love your
 	approach to things.&#8221;<br></p>
-	<img src="/ref/ds.jpeg" class="avatar">
+	<img src="/ref/ds.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>Derek Sivers</b><br>
 	<span class="gray">@sivers</span></p>
@@ -60,7 +60,7 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
         <p class="lh-title ni">&#8220;Been learning a lot of BSD
         and specifically OpenBSD from Roman. This is a great
         website.&#8221;</p>
-	<img src="/ref/iah.jpeg" class="avatar">
+	<img src="/ref/iah.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>Isak Holmstr&ouml;m</b><br>
         <span class="gray">iah@fosstodon.org</span></p>
@@ -71,7 +71,7 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
         who have yet to learn the knowledge they seek is in the man
         pages&#8230; thanks for your work on making BSD more
         accessible &#8230;</p>
-	<img src="/ref/ts.jpeg" class="avatar">
+	<img src="/ref/ts.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>Tom Smyth</b><br>
         <span class="gray">@ogmaconnect1</span></p>
@@ -80,7 +80,7 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
         <p class="lh-title ni">&#8220;You&#8217;re an absolute
         reference for those who love Unix systems like me,
         thanks&#8230;&#8221;</p>
-	<img src="/ref/b3h3m0th.jpeg" class="avatar">
+	<img src="/ref/b3h3m0th.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>b3h3m0th</b><br>
 	<span class="gray">@b3h3m0th</span></p>
@@ -89,7 +89,7 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
         <p class="lh-title ni">&#8220;Your articles are awesome,
         really readable! Thank&#8217;s for such work and such free
         sharing.&#8221;</p>
-	<img src="/ref/wesley974.jpeg" class="avatar">
+	<img src="/ref/wesley974.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>Wesley</b><br>
 	<span class="gray">@wesley974</span></p>
@@ -98,7 +98,7 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
         <p class="lh-title ni">&#8220;Roman thanks for sharing all
         this information. Really is helpful especially to new comers
         to the project.&#8221;</p>
-	<img src="/ref/tuxbsd.jpeg" class="avatar">
+	<img src="/ref/tuxbsd.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>Josh Stephens</b><br>
 	<span class="gray">@tuxbsd</span></p>
@@ -110,7 +110,7 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
         MacBooks and destroy JS (please come!), to Roman we should
         call for help! With just coreutils + a few packages, he can
         rebuild the internet 4all&#8221;</p>
-	<img src="/ref/leonvolunteers.jpeg" class="avatar">
+	<img src="/ref/leonvolunteers.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>Leon Stafford</b><br>
         <span class="gray">@leonvolunteers</span></p>
@@ -121,7 +121,7 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
         are what pushed me to write and share. And he continues to
         be the number one drive. Roman, you redefine awesome. Thank
         you!&#8221;</p>
-	<img src="/ref/h3artbl33d.jpeg" class="avatar">
+	<img src="/ref/h3artbl33d.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>h3artbl33d</b><br>
 	<span class="gray">@h3artbl33d</span></p>
@@ -129,7 +129,7 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
 <div class="fl w-100 w5-l pv2 pr2-l"><div class="bg-white ph4 pv2">
         <p class="lh-title ni">&#8220;Your shell kung fu is too
         awesome &#128077;&#8221;</p>
-	<img src="/ref/sadhya_mafia.jpeg" class="avatar">
+	<img src="/ref/sadhya_mafia.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>Ashish Kurian Thomas</b><br>
 	<span class="gray">@sadhya_mafia</span></p>
@@ -137,7 +137,7 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
 <div class="fl w-100 w5-l pv2 pl2-l"><div class="bg-white ph4 pv2">
         <p class="lh-title ni">&#8220;&#8230;I adore your bsd
         texts.&#8221;</p>
-	<img src="/ref/iah.jpeg" class="avatar">
+	<img src="/ref/iah.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>Isak Holmstr&#246;m</b><br>
 	<span class="gray">@iah@fosstodon.org</span></p>
@@ -148,7 +148,7 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
         concerning OpenBSD :) I think it&#8217;s just in line with
         the thinking behind OpenBSD (and UNIX in general); simple
         but powerful tools with clear instructions.&#8221;</p>
-	<img src="/ref/pikkabird.jpeg" class="avatar">
+	<img src="/ref/pikkabird.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>Hans Solo</b><br>
 	<span class="gray">@pikkabird</span></p>
@@ -158,7 +158,7 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
         @romanzolotarev&#8217;s awesome guides to set up a remote
         git host on #OpenBSD. My mind is still blown because of how
         easy it was! Thanks, Roman!&#8221;</p>
-	<img src="/ref/lambdanerd.jpeg" class="avatar">
+	<img src="/ref/lambdanerd.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>lambdanerd</b><br>
 	<span class="gray">@lambdanerd</span></p>
@@ -166,7 +166,7 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
 <div class="fl w-100 w5-l pv2 pr2-l"><div class="bg-white ph4 pv2">
         <p class="lh-title ni">&quot;I wish I&#8217;ve read this
         earlier. &#8230;thanks @romanzolotarev&#8221;</p>
-	<img src="/ref/antranigv.jpeg" class="avatar">
+	<img src="/ref/antranigv.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>antranigv</b><br>
 	<span class="gray">@antranigv</span></p>
@@ -174,7 +174,7 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
 <div class="fl w-100 w5-l pv2 pl2-l"><div class="bg-white ph4 pv2">
         <p class="lh-title ni">&#8220;Damn you are a machine!!
         Building tons of stuff.&#8221;</p>
-	<img src="/ref/brutusunix.jpeg" class="avatar">
+	<img src="/ref/brutusunix.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>EssentialOS=OpenBSD</b><br>
 	<span class="gray">@BrutusUnix</span></p>
@@ -183,7 +183,7 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
         <p class="lh-title ni">&#8220;Got full control over my
         #OpenBSD VM at @OpenBSDAms @mischapeters and @romanzolotarev
         are doing great work for users and community.&#8221;</p>
-	<img src="/ref/vetelko.jpeg" class="avatar">
+	<img src="/ref/vetelko.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>Vetelko</b><br>
 	<span class="gray">@vetelko</span></p>
@@ -195,7 +195,7 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
         @romanzolotarev whose consistent advocacy and engagement
         in the community has spurred me to move my main work laptop
         there for the first time. Thx!&#8221;</p>
-	<img src="/ref/sethhanford.jpeg" class="avatar">
+	<img src="/ref/sethhanford.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>Seth Hanford</b><br>
 	<span class="gray">@SethHanford</span></p>
@@ -206,7 +206,7 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
         you @mischa for @OpenBSDAms. Thank you @romanzolotarev for
         writing proper tutorials, which I can sent to
         colleagues&#8230;&#8221;</p>
-	<img src="/ref/h3artbl33d.jpeg" class="avatar">
+	<img src="/ref/h3artbl33d.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>h3artbl33d</b><br>
 	<span class="gray">@h3artbl33d</span></p>
@@ -216,7 +216,7 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
         inspiration about the unix os and its tools and philosophies.
         Your new script really got me fired up again on learning
         unix and its tools and the tinkering spirit&#8221;</p>
-	<img src="/ref/tuxbsd.jpeg" class="avatar">
+	<img src="/ref/tuxbsd.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>Josh Stephens</b><br>
 	<span class="gray">@tuxbsd</span></p>
@@ -225,7 +225,7 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
         <p class="lh-title ni">&#8220;Roman&#8217;s tutorials
         on his page are awesome. Become a patron and support his
         effort&#8221;</p>
-	<img src="/ref/pkotrcka.jpeg" class="avatar">
+	<img src="/ref/pkotrcka.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>Peter Kotr&#x10D;ka</b><br>
 	<span class="gray">@pkotrcka@octodon.social</span></p>
@@ -233,7 +233,7 @@ and scripts.  Feel free [to tweet more](https://twitter.com/romanzolotarev)
 <div class="fl w-100 w5-l pv2 pr2-l"><div class="bg-white ph4 pv2">
         <p class="lh-title ni">&#8220;I like your style, you go to
         the root!&#8221;</p>
-	<img src="/ref/rossijonas.jpeg" class="avatar">
+	<img src="/ref/rossijonas.jpg" class="avatar">
 	<p class="f7 lh-solid sans-serif pv1">
 	<b>Jonas B. Rossi</b><br>
 	<span class="gray">@rossijonas</span></p>
