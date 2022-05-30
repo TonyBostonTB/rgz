@@ -1,6 +1,0 @@
-#!/bin/sh
-
-{
-rsync -avP --delete "$HOME/" ro2:ro1
-date
-} > /tmp/ro1-ro2 2>&1

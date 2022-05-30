@@ -1,9 +1,0 @@
-#!/bin/sh
-for ns in s1.rgz.be ns0.transip.net ns0.transip.nl ns0.transip.eu
-do
-	printf "$ns	"
-	for i in $(jot 200)
-	do dig rzr.be @"$ns"
-	done |
-	awk '/time/{t=t+$4}END{print t/200}'
-done

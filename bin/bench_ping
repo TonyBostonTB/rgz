@@ -1,7 +1,0 @@
-#!/bin/sh
-for ns in s1.rgz.be ns0.transip.net ns0.transip.nl ns0.transip.eu
-do
-	printf "$ns	"
-	ping -c 10 "$ns" |
-	awk '/avg/{print$4}'
-done

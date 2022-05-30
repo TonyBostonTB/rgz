@@ -348,7 +348,7 @@ const handleEvent =
           ...(type === "change" &&
             [".csv", ".md", ".html"].includes(getExt(filePath)) &&
             ![".ssg.html"].includes(relativeFilePath(filePath)) && {
-              href: "/" + relativeFilePath(filePath).replace(".md", ".html"),
+              href: "/" + relativeFilePath(filePath).replace(".md", ""),
             }),
         })
       )

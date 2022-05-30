@@ -1,4 +1,0 @@
-#!/bin/sh
-
-head -n 2 ~/downloads/tiny* |
-tiny_to_n

@@ -1,7 +1,0 @@
-#!/bin/sh
-[ "$(whoami)" = 'root' ] || { >&2 echo "$0: need root privileges"; exit 1; }
-[ -z "$1" ] && { >&2 echo "usage: ${0##*/} <special>"; exit 2; }
-
-umount "$1"
-bioctl -d "$1" &&
-rm -r "/mnt/${1:?}"

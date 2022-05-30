@@ -64,7 +64,7 @@ Select `(I)nstall` and answer questions.
 <pre>
 System hostname? = <b>foo</b>
 Which network interface do you wish to configure? = <b>em0</b>
-DNS domain name? = <em>doman</em>
+DNS domain name? = <em>domain</em>
 Password for root account? = <em>**************************</em>
 Do you want the X Window System to be started by xenodm(1)? = <b>yes</b>
 Setup a user? = <em>username</em>

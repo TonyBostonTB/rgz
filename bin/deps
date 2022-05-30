@@ -1,9 +1,0 @@
-#!/bin/sh
-
-which "$@" |
-while read -r f
-do ldd "$f" 2>/dev/null
-done |
-awk '/\//{print$7}' |
-grep . |
-sort -u

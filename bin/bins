@@ -1,8 +1,0 @@
-#!/bin/sh
-
-tr -c 'a-z0-9_/' '\n' |
-grep . |
-sort -u |
-while read -r x
-do which "$x" 2>/dev/null
-done
