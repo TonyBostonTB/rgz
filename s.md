@@ -14,7 +14,7 @@ works on big and small screens
 
 ![](s.gif)
 
-477 bytes of css
+491 bytes of css
 
 ```css
 html {

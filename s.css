@@ -23,9 +23,10 @@ h2 {
   margin: 100vh 0;
 }
 pre {
-  font-size: 0.6em;
   padding: 1em;
   overflow-x: auto;
+  font-size: 0.8rem;
+  line-height: 0.9rem;
 }
 p,
 h1,
@@ -41,10 +42,6 @@ img {
 svg {
   width: 100%;
   height: 100vh;
-}
-pre {
-  font-size: 0.8rem;
-  line-height: 0.9rem;
 }
 p {
   line-height: 1rem;
