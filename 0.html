@@ -1,0 +1,159 @@
+<html lang="en">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="og:image" content="https://rgz.ee/0.gif" />
+  <meta name="og:title" content="almost-zero-css" />
+  <meta
+    name="og:description"
+    content="a 585-byte class-less collection of css styles for simple responsive html pages"
+  />
+  <title>0.css &mdash; rgz.ee</title>
+  <link rel="stylesheet" href="/00.css" />
+  <style>
+    .avatar {
+      border-radius: 100%;
+      width: 3rem;
+    }
+  </style>
+
+  <header>
+    <a href="/"><img class="avatar" src="/rgzee-black.svg" /></a>
+  </header>
+
+  <h1>almost-zero-css</h1>
+
+  <p>
+    is a <b>585 byte</b> <b>class-less</b> collection of css styles for simple
+    <b>responsive</b> html pages.
+  </p>
+
+  <p>it supports <b>dark and light themes</b> and comes in two sizes:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th colspan="3" align="right">minified gzipped, bytes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="0.css">0.css</a></td>
+        <td>basic collection</td>
+        <td align="right">0.55</td>
+      </tr>
+      <tr>
+        <td><a href="00.css">00.css</a></td>
+        <td>plus <code>&lt;form&gt;</code> elements</td>
+        <td align="right">1.24</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr />
+
+  <p>
+    <a href="00.css">view source</a> and feel free to copy. most likely no major
+    changes in your html required. take a look at the following <b>examples</b>:
+  </p>
+
+  <h2 id="image">image</h2>
+
+  <p>
+    <img src="0.gif" alt="zero" />
+    <small>gif by <a href="https://giphy.com/kevlavery">kevlavery</a></small>
+  </p>
+
+  <h2 id="code">code</h2>
+
+  <pre><kbd>&lt;kbd&gt; &mdash; for user input</kbd>
+<q>&lt;q&gt; for copy-paste friendly</q>
+<q>multiline blocks</q>
+<var>&lt;var&gt; &mdash; variables</var>
+<samp>&lt;samp&gt; &mdash; sample outputs</samp>
+  </pre>
+
+  <h2 id="link">link</h2>
+  <ul>
+    <li><a href="/">visited</a></li>
+    <li><a href="/non-existing-page">not visited</a></li>
+    <li>
+      <small><a href="/non-existing-page">small</a></small>
+    </li>
+  </ul>
+
+  <h2 id="style">style</h2>
+
+  <ul>
+    <li><code>code</code></li>
+    <li><em>italic</em></li>
+    <li><strong>bold</strong></li>
+    <li><del>strike</del></li>
+  </ul>
+
+  <h2 id="text">text</h2>
+
+  <p>
+    lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.
+  </p>
+
+  <blockquote>
+    <p>
+      lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim.
+    </p>
+  </blockquote>
+
+  <p>
+    <small>
+      lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.
+    </small>
+  </p>
+
+  <h2 id="form">form</h2>
+  <form>
+    <label for="text">label for text</label>
+    <input id="text" type="text" value="text" />
+    <label for="file">label for file</label>
+    <input id="file" type="file" />
+    <input type="submit" value="submit input" />
+    <label for="select">label for select</label>
+    <select id="select">
+      <option>html</option>
+      <option selected>css</option>
+      <option>javascript</option>
+    </select>
+    <p>
+      <label>label for radio</label>
+      <label><input type="radio" name="radio" checked />radio 1</label>
+      <label><input type="radio" name="radio" />radio 2</label>
+      <label><input type="radio" name="radio" />radio 3</label>
+    </p>
+    <label for="date">date</label>
+    <input id="date" type="date" />
+    <label for="email">e-mail</label>
+    <input id="email" type="email" placeholder="webmaster@example.com" />
+    <label for="phone">phone</label>
+    <input id="phone" type="tel" placeholder="555 1234" />
+    <label for="color">color</label>
+    <input id="color" type="color" value="#000000" />
+    <label for="password">password</label>
+    <input id="password" type="password" placeholder="***" />
+    <label for="textarea">textarea</label>
+    <textarea id="textarea"></textarea>
+    <label><input type="checkbox" checked />checkbox label</label><br />
+    <button type="submit">submit</button>
+    <button type="reset" disabled="">reset</button>
+  </form>
+  <footer>
+    &copy; 2022 rgz.ee o&uuml; &mdash; <a href="/license">licensed under isc</a>
+  </footer>
+</html>

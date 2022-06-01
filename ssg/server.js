@@ -6,12 +6,15 @@ import { WebSocketServer } from "ws";
 import watchDirectories from "./watchDirectories.js";
 import logger from "./logger.js";
 import * as marked from "marked";
+import { parseDocument } from "htmlparser2";
+import { getElementsByTagName, textContent } from "domutils";
 
 const ROOT = path.resolve(process.env.SSG_ROOT || "./");
 const PORT = parseInt(process.env.SSG_PORT || "8888", 10);
 const WS_PORT = PORT - 1;
 const LIVE_RELOAD_NODE_ID = "_liveReload";
 const TITLE = process.env.SSG_TITLE || path.basename(ROOT);
+const DESCRIPTION = process.env.SSG_DESCRIPTION || "";
 const log = logger(TITLE);
 
 const relativeFilePath = (filePath, root = ROOT) =>
@@ -30,14 +33,24 @@ const injectIntoCSV = (file, filePath) => {
   return injectIntoHtml(html, filePath);
 };
 
-const withTitle = (body) => {
-  const match = body.match(/<h1[^>]*>([^<>]*)<\/h1>/is);
-  const pageTitle = match && match[1];
-  return body.replace(
-    /{{title}}/,
-    [pageTitle, TITLE].filter((x) => !!x).join(" - ")
-  );
+const firstTagTextContent = (tag, defaultText, body) => {
+  const [first] = getElementsByTagName(tag, parseDocument(body));
+  return first ? textContent(first) : defaultText;
 };
+
+const withDescription = (body) =>
+  body.replaceAll(
+    /{{description}}/g,
+    firstTagTextContent("p", DESCRIPTION, body)
+  );
+
+const withTitle = (body) =>
+  body.replaceAll(
+    /{{title}}/g,
+    [firstTagTextContent("h1", null, body), TITLE]
+      .filter((x) => !!x)
+      .join(" - ")
+  );
 
 const injectIntoMd = (file, filePath) => {
   const body = file.toString();
@@ -114,15 +127,17 @@ const injectIntoHtml = async (file, filePath) => {
     body.match(/class="mermaid"/is) !== null
       ? `<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.1/mermaid.js"></script>`
       : "";
-  if (body.match(/<html>/is) !== null)
+  if (body.match(/<html.*>/is) !== null)
     return Buffer.from(`${mermaid}${body}${liveReloadCode}`);
   if (httpServer.template)
     return Buffer.from(
-      withTitle(
-        `${mermaid}${httpServer.template.replace(
-          /{{content}}/,
-          body
-        )}${liveReloadCode}`
+      withDescription(
+        withTitle(
+          `${mermaid}${httpServer.template.replace(
+            /{{content}}/,
+            body
+          )}${liveReloadCode}`
+        )
       )
     );
   return Buffer.from(`${mermaid}${body}${liveReloadCode}`);

@@ -1,5 +1,5 @@
-copyright (c) 2018 roman zolotarev hi@romanzolotarev.com<br>
-copyright (c) 2019-2022 rgz.ee o&uuml; hi@rgz.ee
+copyright &copy; 2018 roman zolotarev hi@romanzolotarev.com<br>
+copyright &copy; 2019-2022 rgz.ee o&uuml; hi@rgz.ee
 
 permission to use, copy, modify, and distribute this software for any purpose
 with or without fee is hereby granted, provided that the above copyright notice

@@ -1,0 +1,1 @@
+body,html{padding:0;margin:0}html{max-width:100%;font-size:10vmin;scroll-snap-type:y mandatory}h1,h2,img,p,pre,svg{scroll-snap-align:center}h1,h2,p,pre{margin:100vh 0}pre{padding:1em;overflow-x:auto;font-size:.8rem;line-height:.9rem}h1,h2,p{text-align:center}img{width:auto;height:auto;max-width:100vh;max-height:100vh}svg{width:100%;height:100vh}p{line-height:1rem}
