@@ -14,7 +14,8 @@ works on big and small screens
 
 ![](s.gif)
 
-491 bytes of css
+240 bytes<br>
+<small>minified gzipped</small>
 
 ```css
 html {

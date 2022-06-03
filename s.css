@@ -15,6 +15,7 @@ h2,
 img,
 svg {
   scroll-snap-align: center;
+  scroll-snap-stop: always;
 }
 p,
 pre,
