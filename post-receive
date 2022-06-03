@@ -23,4 +23,8 @@ git clone "$repo" "$raw"
 (cd "$raw/.git" && git update-server-info)
 
 "$HOME/bin/ssg6" "$raw" "$dst" "$title" "$url" > /dev/null
+
+find "$dst" -type f -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.svg" |
+  while read f; do test -f "$f" && gzip -kvf9S gz "$f"; done
+
 hostname > "$dst/hostname"
