@@ -2,14 +2,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="og:image" content="https://rgz.ee/0.gif" />
+  <meta name="og:image" content="https://rgz.ee/0.gif?v2" />
   <meta name="og:title" content="almost-zero-css" />
   <meta
     name="og:description"
     content="a 585-byte class-less collection of css styles for simple responsive html pages"
   />
   <title>0.css &mdash; rgz.ee</title>
-  <link rel="stylesheet" href="/00.css" />
+  <link rel="stylesheet" href="/00.min.css" />
   <style>
     .avatar {
       border-radius: 100%;
@@ -24,7 +24,7 @@
   <h1>almost-zero-css</h1>
 
   <p>
-    is a <b>585 byte</b> <b>class-less</b> collection of css styles for simple
+    is a <b>585-byte</b> <b>class-less</b> collection of css styles for simple
     <b>responsive</b> html pages.
   </p>
 
@@ -33,7 +33,7 @@
   <table>
     <thead>
       <tr>
-        <th colspan="3" align="right">minified gzipped, bytes</th>
+        <th colspan="3" align="right">minified gzipped, kb</th>
       </tr>
     </thead>
     <tbody>
@@ -60,7 +60,7 @@
   <h2 id="image">image</h2>
 
   <p>
-    <img src="0.gif" alt="zero" />
+    <img src="0.gif?v2" alt="zero" />
     <small>gif by <a href="https://giphy.com/kevlavery">kevlavery</a></small>
   </p>
 
@@ -153,6 +153,49 @@
     <button type="submit">submit</button>
     <button type="reset" disabled="">reset</button>
   </form>
+
+  <h2>view source</h2>
+  <pre>
+* { box-sizing: border-box; }
+html { margin: 1rem auto; max-width: 40rem; font: 20px/1.4 arial, sans-serif; text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+footer, header { margin: 1rem 0; }
+a, a:active, a:hover, a:visited:hover { color: #204fd5; }
+a:visited { color: #334f83; }
+hr { border: 0; }
+h1, h2, hr { margin-top: 3rem; }
+html, ul { padding: 0 1rem; }
+li { padding: 0.125rem 0; }
+p img, table { width: 100%; }
+footer, header, small { font-size: 0.8rem; line-height: 1.2rem; }
+small, small a, small a:visited { color: #888; }
+blockquote { border-left: 0.05rem solid #ccc; margin: 0; padding-left: 0.8rem; }
+code, pre { font-family: menlo, monospace; }
+pre, table { font-size: 1rem; }
+pre { line-height: 1.6rem; overflow-x: auto; }
+q::before { content: "> "; color: #aaa; }
+kbd { color: #000; font-weight: 700; }
+samp { background-color: #00c; color: #fff; }
+var { background-color: #fda; }
+table { text-align: left; border-collapse: collapse; }
+td, th { vertical-align: top; padding: 0.5rem 1rem 0.5rem 0; border-bottom: 0.05rem solid #ccc; }
+td:first-child { white-space: nowrap; }
+td:last-child, th:last-child { padding-right: 0; }
+tr:last-child td { border-bottom: 0; }
+
+@media (prefers-color-scheme: dark) {
+  html { background-color: #000; color: #ccc; }
+  a { color: #fda; }
+  a:active, a:hover, a:visited:hover, kbd, samp { color: #fff; }
+  a:visited { color: #ba8; }
+  small, small a, small a:visited { color: #888; }
+  q::before { color: #555; }
+  var { color: #000; }
+  samp { background-color: #00c; }
+  blockquote { border-left-color: #444; }
+  td, th { border-bottom-color: #444; }
+}
+  </pre>
+
   <footer>
     &copy; 2022 rgz.ee o&uuml; &mdash; <a href="/license">licensed under isc</a>
   </footer>

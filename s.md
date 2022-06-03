@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="s.css" /><style>header { display: none; }</style>
+<link rel="stylesheet" href="s.min.css" /><style>header { display: none; }</style>
 
 # s
 
