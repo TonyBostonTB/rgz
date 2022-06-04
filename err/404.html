@@ -1,8 +1,32 @@
-<html>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="/style.css" />
-<title>$RESPONSE_CODE - $HTTP_ERROR - rgz.ee</title>
-<p class="logo"><a href="/"><img class="avatar" src="/rgzee-black.svg"></a></p>
-<h1>$RESPONSE_CODE</h1>
-<p>$HTTP_ERROR</p>
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="og:type" content="summary_large_image" />
+  <meta name="og:image" content="https://rgz.ee/rgzee-black.png" />
+  <meta name="og:title" content="$RESPONSE_CODE - rgz.ee" />
+  <meta name="og:description" content="$HTTP_ERROR<" />
+  <meta name="description" content="$HTTP_ERROR<" />
+  <link rel="stylesheet" href="/0.min.css" />
+  <style>
+    header {
+      align-items: center;
+      display: flex;
+    }
+    header p {
+      flex-direction: row;
+      margin-right: 1em;
+    }
+    .avatar {
+      border-round: 100%;
+      width: 3rem;
+    }
+  </style>
+  <title>$RESPONSE_CODE - rgz.ee</title>
+
+  <header>
+    <a href="/"><img alt="logo" class="avatar" src="/rgzee-black.svg" /></a>
+  </header>
+  <h1>$RESPONSE_CODE</h1>
+  <p>$HTTP_ERROR</p>
+</html>

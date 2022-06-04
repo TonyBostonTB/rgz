@@ -57,7 +57,8 @@ blockquote {
   padding-left: 0.8rem;
 }
 code,
-pre {
+pre,
+kbd {
   font-family: menlo, monospace;
 }
 pre,

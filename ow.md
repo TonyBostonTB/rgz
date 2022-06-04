@@ -5,18 +5,14 @@ _Tested with [OpenBSD](/openbsd/) 6.4_
 only adds some HTTP headers to get higher grades from the following
 tests:
 
-<code class="dib w2 tc mr1 white bg-green f7 b">A+</code>
-<a href="https://observatory.mozilla.org/analyze/rgz.ee">Observatory by Mozilla</a><br>
-<code class="dib w2 tc mr1 white bg-green f7 b">A+</code>
-<a href="https://www.ssllabs.com/ssltest/analyze?d=rgz.ee">SSL Labs by Qualys</a><br>
-<code class="dib w2 tc mr1 white bg-green f7 b">A&nbsp;</code>
-<a href="https://tls.imirhil.fr/https/rgz.ee">CryptCheck</a><br>
-<code class="dib w2 tc mr1 white bg-green f7 b">A+</code>
-<a href="https://securityheaders.com/?followRedirects=on&hide=on&q=rgz.ee">Security Headers</a><br>
-<code class="dib w2 tc mr1 white bg-green f7 b">+</code>
-<a href="https://hstspreload.org/?domain=rgz.ee">HSTS Preload</a></br>
-<code class="dib w2 tc mr1 white bg-green f7 b">100</code>
-<a href="https://developers.google.com/web/tools/lighthouse/">Lighthouse by Google</a></br>
+<pre>
+a+  <a href="https://observatory.mozilla.org/analyze/rgz.ee">observatory by mozilla</a>
+a+  <a href="https://www.ssllabs.com/ssltest/analyze?d=rgz.ee">ssl labs by qualys</a>
+a   <a href="https://tls.imirhil.fr/https/rgz.ee">cryptcheck</a>
+a+  <a href="https://securityheaders.com/?followRedirects=on&hide=on&q=rgz.ee">security headers</a>
++   <a href="https://hstspreload.org/?domain=rgz.ee">hsts preload</a>
+100 <a href="https://developers.google.com/web/tools/lighthouse/">lighthouse by google</a>
+</pre>
 
 There are some drawbacks:
 
@@ -25,7 +21,7 @@ Because relayd(8) is fronting httpd(8): `REMOTE_ADDR` in
 to include `X-Forwarded-For` and `X-Forwarded-Port` to the log.
 
 Also httpd(8) [doesn't support][1] `gzip`
-compression for static files.  You can use `gzip` via FastCGI, if
+compression for static files. You can use `gzip` via FastCGI, if
 needed.
 
 # Set up a web server with httpd(8) and relayd(8) on OpenBSD
