@@ -24,7 +24,7 @@ git --git-dir "$repo" --work-tree "$raw" reset --hard master
 
 "$HOME/bin/ssg6" "$raw" "$dst" "$title" "$url" > /dev/null
 
-find "$dst" -newer "$dst/.files" -type f -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.svg" |
+find "$dst" -newer "$dst/raw" -type f -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.svg" |
   while read f; do test -f "$f" && gzip -kvf9S gz "$f"; done
 
 hostname > "$dst/hostname"

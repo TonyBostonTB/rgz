@@ -1,49 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="og:image" content="https://rgz.ee/rgzee-black.png" />
-  <meta name="og:title" content="rgz.ee" />
-  <meta name="og:description" content="minimalist web development" />
-  <meta name="description" content="minimalist web development" />
-  <meta
-    name="theme-color"
-    content="#fff"
-    media="(prefers-color-scheme: light)"
-  />
-  <meta
-    name="theme-color"
-    content="#000"
-    media="(prefers-color-scheme: dark)"
-  />
-  <link rel="manifest" href="/manifest.json" />
-  <link rel="apple-touch-icon" href="/rgzee-black-192.png" />
-  <link rel="stylesheet" href="/0.min.css" />
-  <style>
-    .avatar {
-      border-radius: 100%;
-      width: 3rem;
-      aspect-ratio: attr(width) / attr(height);
-    }
-  </style>
-  <title>rgz.ee</title>
-
-  <header>
-    <a href="/"
-      ><img
-        width="60"
-        height="60"
-        alt="logo"
-        class="avatar"
-        src="/rgzee-black.svg"
-    /></a>
-  </header>
-
-  <h1>rgz.ee</h1>
-
-  <p>minimalist web development</p>
-
-  <footer>&copy; 2022 rgz.ee o&uuml;</footer>
-  <script src="register-sw.js"></script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="og:image" content="https://rgz.ee/rgzee-black.png">
+    <meta name="og:title" content="rgz.ee">
+    <meta name="og:description" content="minimalist web development">
+    <meta name="description" content="minimalist web development">
+    <meta name="theme-color" content="#fff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000" media="(prefers-color-scheme: dark)">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/0.min.css">
+    <style>
+      .avatar {
+        border-radius: 100%;
+        width: 3rem;
+        aspect-ratio: attr(width) / attr(height);
+      }
+    </style>
+    <title>rgz.ee</title>
+    <link rel="icon" type="image/png" sizes="196x196" href="favicon-196.png">
+    <link rel="apple-touch-icon" href="apple-icon-180.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+  </head>
+  <body>
+    <header>
+      <a href="/"><img width="60" height="60" alt="logo" class="avatar" src="/rgzee-black.svg"></a>
+    </header>
+    <h1>rgz.ee</h1>
+    <p>minimalist web development</p>
+    <footer>© 2022 rgz.ee oü</footer>
+    <script src="register-sw.js"></script>
+  </body>
 </html>
