@@ -2,8 +2,13 @@
   "short_name": "rgz.ee",
   "name": "rgz.ee: minimalist web development",
   "icons": [
+    {
+      "src": "/rgzee-black-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    },
     { "src": "/rgzee-black-192.png", "type": "image/png", "sizes": "192x192" },
-    { "src": "/rgzee-black-512.png", "type": "image/png", "sizes": "512x512" },
     { "src": "/rgzee-black.svg", "type": "image/svg+xml", "sizes": "512x512" }
   ],
   "start_url": "/",
