@@ -134,7 +134,7 @@ const injectIntoHtml = async (file, filePath) => {
       withDescription(
         withTitle(
           `${mermaid}${httpServer.template.replace(
-            /{{content}}/,
+            /{{body}}/,
             body
           )}${liveReloadCode}`
         )
